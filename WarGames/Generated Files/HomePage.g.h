@@ -7,21 +7,11 @@
 //------------------------------------------------------------------------------
 
 
-namespace Windows {
-    namespace UI {
-        namespace Xaml {
-            namespace Controls {
-                ref class NavigationView;
-                ref class Frame;
-            }
-        }
-    }
-}
 
 namespace WarGames
 {
     [::Windows::Foundation::Metadata::WebHostHidden]
-    partial ref class MainPage : public ::Windows::UI::Xaml::Controls::Page, 
+    partial ref class HomePage : public ::Windows::UI::Xaml::Controls::Page, 
         public ::Windows::UI::Xaml::Markup::IComponentConnector,
         public ::Windows::UI::Xaml::Markup::IComponentConnector2
     {
@@ -33,8 +23,6 @@ namespace WarGames
     private:
         bool _contentLoaded;
     
-        private: ::Windows::UI::Xaml::Controls::NavigationView^ nvTopLevelNav;
-        private: ::Windows::UI::Xaml::Controls::Frame^ contentFrame;
     };
 }
 

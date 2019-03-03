@@ -8,11 +8,11 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <NavigationView x:Name="nvTopLevelNav"
-                Loaded="nvTopLevelNav_Loaded"
+    <NavigationView x:ConnectionId='1' x:Name="nvTopLevelNav"
+                                             
                 Margin="0,12,0,0"
-                SelectionChanged="nvTopLevelNav_SelectionChanged"
-                ItemInvoked="nvTopLevelNav_ItemInvoked"
+                                                                 
+                                                       
                 IsTabStop="False"
                 Header="GRY WOJENNE">
         <NavigationView.MenuItems>
@@ -26,7 +26,8 @@
             <NavigationViewItem Icon="Message" Content="Message" Tag="Message_Page" />
             <NavigationViewItem Icon="Print" Content="Print" Tag="Print_Page" />
         </NavigationView.MenuItems>
-        <Frame x:Name="contentFrame"></Frame>
+        <Frame x:ConnectionId='2' x:Name="contentFrame"></Frame>
     </NavigationView>
     
 </Page>
+
