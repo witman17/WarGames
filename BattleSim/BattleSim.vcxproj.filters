@@ -6,4 +6,29 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BattleSim.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Unit.cpp" />
+    <ClCompile Include="InfantryUnit.cpp" />
+    <ClCompile Include="Army.cpp" />
+    <ClCompile Include="UnitDecorator.cpp" />
+    <ClCompile Include="heavyArmed.cpp" />
+    <ClCompile Include="lightArmed.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BattleSim.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Unit.h" />
+    <ClInclude Include="InfantryUnit.h" />
+    <ClInclude Include="Army.h" />
+    <ClInclude Include="UnitDecorator.h" />
+    <ClInclude Include="heavyArmed.h" />
+    <ClInclude Include="lightArmed.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
 </Project>
