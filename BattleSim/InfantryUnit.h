@@ -7,6 +7,7 @@ namespace BattleSim {
 	{
 	public:
 		InfantryUnit();
+		InfantryUnit(string name, float2 position, unsigned size);
 		~InfantryUnit();
 		void attack(Unit* enemy);
 		void defend(unsigned damage);

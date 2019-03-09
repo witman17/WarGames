@@ -190,6 +190,7 @@
   <ItemGroup>
     <ClInclude Include="Army.h" />
     <ClInclude Include="BattleSim.h" />
+    <ClInclude Include="CavalryUnit.h" />
     <ClInclude Include="heavyArmed.h" />
     <ClInclude Include="InfantryUnit.h" />
     <ClInclude Include="lightArmed.h" />
@@ -201,6 +202,7 @@
   <ItemGroup>
     <ClCompile Include="Army.cpp" />
     <ClCompile Include="BattleSim.cpp" />
+    <ClCompile Include="CavalryUnit.cpp" />
     <ClCompile Include="heavyArmed.cpp" />
     <ClCompile Include="InfantryUnit.cpp" />
     <ClCompile Include="lightArmed.cpp" />

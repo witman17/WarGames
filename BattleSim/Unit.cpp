@@ -5,8 +5,21 @@ using namespace BattleSim;
 
 Unit::Unit()
 {
+	this->name = "Basic Unit";
+	this->damage = 1;
+	this->defence = 1;
+	this->position = float2(0.0, 0.0);
+	this->range = 1.0;
+	this->size = 100;
+	this->speed = 1.0;
 }
 
+Unit::Unit(string name, float2 position, unsigned size):Unit()
+{
+	this->name = name;
+	this->position = position;
+	this->size = size;
+}
 
 Unit::~Unit()
 {

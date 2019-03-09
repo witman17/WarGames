@@ -15,6 +15,7 @@
     <ClCompile Include="UnitDecorator.cpp" />
     <ClCompile Include="heavyArmed.cpp" />
     <ClCompile Include="lightArmed.cpp" />
+    <ClCompile Include="CavalryUnit.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BattleSim.h" />
@@ -26,5 +27,6 @@
     <ClInclude Include="UnitDecorator.h" />
     <ClInclude Include="heavyArmed.h" />
     <ClInclude Include="lightArmed.h" />
+    <ClInclude Include="CavalryUnit.h" />
   </ItemGroup>
 </Project>

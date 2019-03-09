@@ -21,6 +21,7 @@ namespace BattleSim {
 
 	public:
 		Unit();
+		Unit(string name, float2 position, unsigned size);
 		virtual ~Unit() = 0;
 		virtual void attack(BattleSim::Unit* enemy) = 0;
 		virtual void defend(unsigned damage) = 0;
