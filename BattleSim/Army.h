@@ -8,7 +8,7 @@ using namespace std;
 
 namespace BattleSim 
 {
-	enum class armyState
+	enum class armyStatus
 	{
 			WARFARE,
 			VICTORY,
@@ -21,14 +21,14 @@ namespace BattleSim
 		string name;
 		list<Army*> enemies;
 		list<Unit*> units;
-		armyState currentState;
+		armyStatus currentStatus;
 
 	public:
 		Army();
 		Army(string name, list<Army*> &enemies, list<Unit*> &units);
 		~Army();
 		string getName();
-		armyState getState();
+		armyStatus getState();
 		list<Army*> getEnemies();
 		list<Unit*> getUnits();
 		void addUnit(Unit &unit);

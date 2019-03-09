@@ -39,8 +39,8 @@ namespace BattleSim {
 
 	}
 
-	BattleSim::armyState Army::getState() {
-		return currentState;
+	BattleSim::armyStatus Army::getState() {
+		return currentStatus;
 	}
 
 	list<Army*> Army::getEnemies() {
