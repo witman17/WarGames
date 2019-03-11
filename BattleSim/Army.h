@@ -21,14 +21,14 @@ namespace BattleSim
 		string name;
 		list<Army*> enemies;
 		list<Unit*> units;
-		armyStatus currentStatus;
+		armyStatus status;
 
 	public:
 		Army();
 		Army(string name, list<Army*> &enemies, list<Unit*> &units);
 		~Army();
 		string getName();
-		armyStatus getState();
+		armyStatus getStatus();
 		list<Army*> getEnemies();
 		list<Unit*> getUnits();
 		void addUnit(Unit &unit);

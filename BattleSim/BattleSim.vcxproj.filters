@@ -29,4 +29,8 @@
     <ClInclude Include="lightArmed.h" />
     <ClInclude Include="CavalryUnit.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
 </Project>

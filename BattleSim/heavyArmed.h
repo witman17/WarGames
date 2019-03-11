@@ -2,12 +2,12 @@
 #include "UnitDecorator.h"
 
 namespace BattleSim {
-	class heavyArmed :
+	class HeavyArmed :
 		public UnitDecorator
 	{
 	public:
-		heavyArmed(Unit * unit);
-		~heavyArmed();
+		HeavyArmed(Unit * unit);
+		~HeavyArmed();
 		void attack(Unit* enemy);
 		void defend(unsigned damage);
 		void move(float2 position);

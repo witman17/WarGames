@@ -1,12 +1,13 @@
 #pragma once
 #include "UnitDecorator.h"
+
 namespace BattleSim {
-	class lightArmed :
+	class LightArmed :
 		public UnitDecorator
 	{
 	public:
-		lightArmed(Unit *unit);
-		~lightArmed();
+		LightArmed(Unit *unit);
+		~LightArmed();
 		void attack(BattleSim::Unit* enemy);
 		void defend(unsigned damage);
 		void move(float2 position);

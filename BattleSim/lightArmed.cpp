@@ -3,23 +3,23 @@
 
 
 namespace BattleSim {
-	BattleSim::lightArmed::lightArmed(Unit * unit) :UnitDecorator(unit)
+	BattleSim::LightArmed::LightArmed(Unit * unit) :UnitDecorator(unit)
 	{
 	}
 
-	BattleSim::lightArmed::~lightArmed()
+	BattleSim::LightArmed::~LightArmed()
 	{
 	}
 
-	void BattleSim::lightArmed::attack(BattleSim::Unit * enemy)
+	void BattleSim::LightArmed::attack(BattleSim::Unit * enemy)
 	{
 	}
 
-	void BattleSim::lightArmed::defend(unsigned damage)
+	void BattleSim::LightArmed::defend(unsigned damage)
 	{
 	}
 
-	void BattleSim::lightArmed::move(float2 position)
+	void BattleSim::LightArmed::move(float2 position)
 	{
 	}
 }
