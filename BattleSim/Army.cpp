@@ -9,53 +9,41 @@ namespace BattleSim {
 
 	}
 
-	BattleSim::Army::Army(string name, list<Army*>& enemies, list<Unit*>& units)
-	{
-
-	}
-
-
 	Army::~Army()
 	{
 
 	}
 
-	string BattleSim::Army::getName()
+	string Army::getName()
 	{
-		return string();
+		return this->name;
 	}
 
-	void Army::battle() {
-		moveUnsits();
-		encounterEnemyUnits();
-	}
-
-	void Army::moveUnsits()
+	void Army::battle() 
 	{
-
+		
 	}
 
-	void Army::encounterEnemyUnits() {
-
-	}
-
-	BattleSim::armyStatus Army::getStatus() {
+	ArmyStatus Army::getStatus() {
 		return status;
 	}
 
-	list<Army*> Army::getEnemies() {
+	set<Army*> Army::getEnemies() {
 		return enemies;
 	}
 
-	list<Unit*> Army::getUnits() {
+	void Army::setEnemies(set<Army*> enemies)
+	{
+		this->enemies = enemies;
+	}
+
+	set<Unit*> Army::getUnits() {
 		return units;
 	}
 
-	void BattleSim::Army::addUnit(Unit & unit)
+	void Army::addUnit(Unit &unit)
 	{
+		this->units.insert(&unit);
 	}
 
-	void BattleSim::Army::removeUnit(unsigned index)
-	{
-	}
 }

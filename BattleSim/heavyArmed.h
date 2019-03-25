@@ -6,9 +6,9 @@ namespace BattleSim {
 		public UnitDecorator
 	{
 	public:
-		HeavyArmed(Unit * unit);
+		HeavyArmed(Unit &unit);
 		~HeavyArmed();
-		void attack(Unit* enemy);
+		void attack(Unit &enemy);
 		void defend(unsigned damage);
 		void move(float2 position);
 

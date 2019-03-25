@@ -1,27 +1,42 @@
 ﻿#include "pch.h"
 #include "BattleSim.h"
+#include <set>
+#include <string>
+#include <iostream>
 
 namespace BattleSim {
 
-    BattleSim::BattleSim()
+    BattleSim::BattleSim(){}
+
+	BattleSim & BattleSim::getInstance()
 	{
+		static BattleSim instance;
+		return instance;
 	}
 
 	BattleSim::~BattleSim()
 	{
 	}
 
-	list<Army*> BattleSim::getArmies()
+	set<Army*> BattleSim::getArmies()
 	{
 		return this->armies;
 	}
 
-	list<Unit*> BattleSim::getUnits()
+	set<Unit*> BattleSim::getActiveUnits()
 	{
-		return this->units;
+		return this->getActiveUnits;
 	}
 
 	void BattleSim::runSimulationStep()
 	{
+		for (set<Army*>::iterator iter = armies.begin(); iter != armies.end(); iter++)
+		{
+			Army *a = *iter;
+			if (a != nullptr)
+			{
+				a->battle();
+			}
+		}
 	}
-}
+}	

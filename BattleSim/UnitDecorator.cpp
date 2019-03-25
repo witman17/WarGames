@@ -3,8 +3,8 @@
 
 namespace BattleSim {
 
-	UnitDecorator::UnitDecorator(Unit *unit)
+	UnitDecorator::UnitDecorator(Unit &unit)
 	{
-		this->unit = unit;
+		this->unit = &unit;
 	}
 }

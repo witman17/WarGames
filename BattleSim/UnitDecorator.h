@@ -9,9 +9,9 @@ namespace BattleSim {
 	protected:
 		Unit *unit;
 	public:
-		UnitDecorator(Unit *unit);
+		UnitDecorator(Unit &unit);
 		virtual ~UnitDecorator() = 0;
-		virtual void attack(BattleSim::Unit* enemy) = 0;
+		virtual void attack(Unit& enemy) = 0;
 		virtual void defend(unsigned damage) = 0;
 		virtual void move(float2 position) = 0;
 	};

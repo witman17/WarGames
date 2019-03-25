@@ -1,21 +1,18 @@
 #include "pch.h"
 #include "Unit.h"
 
+#include "Math.h"
+#include "BattleSim.h"
+
 using namespace BattleSim;
 
 Unit::Unit()
 {
-	this->name = "Basic Unit";
-	this->damage = 1;
-	this->defence = 1;
-	this->position = float2(0.0, 0.0);
-	this->range = 1.0;
-	this->size = 100;
-	this->speed = 1.0;
 }
 
-Unit::Unit(string name, float2 position, unsigned size):Unit()
+Unit::Unit(Army &army, string name, float2 position, unsigned size)
 {
+	this->army = &army;
 	this->name = name;
 	this->position = position;
 	this->size = size;
@@ -25,6 +22,32 @@ Unit::~Unit()
 {
 }
 
+
+Unit* Unit::getEnemyUnitInRange()
+{
+	set<Unit*> units = BattleSim::getInstance().getActiveUnits();
+	for (set<Unit*>::iterator iter = units.begin(); iter != units.end(); iter++) {
+		Unit *unit = *iter;
+		if (unit != nullptr) {
+			if (unit->army != this->army) {
+				if (this->getDistance(unit->position) <= this->range) {
+					return unit;
+				}
+			}
+		}
+	}
+	return nullptr;
+}
+
+float Unit::getDistance(float2 position)
+{
+	return sqrtf(powf(position.x - this->position.x, 2.0) + powf(position.y - this->position.y, 2.0));
+}
+
+Army* Unit::getArmy()
+{
+	return this->army;
+}
 
 string Unit::getName()
 {

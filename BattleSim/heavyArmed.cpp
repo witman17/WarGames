@@ -2,9 +2,8 @@
 #include "heavyArmed.h"
 
 namespace BattleSim {
-	HeavyArmed::HeavyArmed(Unit * unit):UnitDecorator(unit)
+	HeavyArmed::HeavyArmed(Unit &unit):UnitDecorator(unit)
 	{
-
 	}
 
 	HeavyArmed::~HeavyArmed()
@@ -12,7 +11,7 @@ namespace BattleSim {
 
 	}
 
-	void HeavyArmed::attack(Unit * enemy)
+	void HeavyArmed::attack(Unit &enemy)
 	{
 
 	}

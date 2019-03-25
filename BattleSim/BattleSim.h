@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include <set>
 #include <list>
 #include <Army.h>
 #include <Unit.h>
@@ -9,16 +10,21 @@ namespace BattleSim {
 	class BattleSim
 	{
 	private:
-		list<Army*> armies;
-		list<Unit*> units;
-	public:
-		BattleSim();
-		~BattleSim();
+		set<Army*> armies;
+		set<Unit*> activeUnits;
+		set<Unit*> destroyedUnits;
 
-		list<Army*> getArmies();
-		list<Unit*> getUnits();
+		BattleSim();
+
+	public:
+		~BattleSim();
+		BattleSim(BattleSim const&) = delete;
+		void operator=(BattleSim const&) = delete;
+		static BattleSim& getInstance();
+
+		set<Army*> getArmies();
+		set<Unit*> getActiveUnits();
 		void runSimulationStep();
-	
 
 	};
 

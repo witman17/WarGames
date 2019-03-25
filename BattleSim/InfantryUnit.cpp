@@ -10,11 +10,10 @@ namespace BattleSim {
 		this->speed = 1.5;
 	}
 
-	InfantryUnit::InfantryUnit(string name, float2 position, unsigned size):InfantryUnit()
+	InfantryUnit::InfantryUnit(Army &army, string name, float2 position, unsigned size):Unit(army, name, position, size)
 	{
-		this->name = name;
-		this->position = position;
-		this->size = size;
+		this->damage = 2;
+		this->speed = 1.5;
 	}
 
 	InfantryUnit::~InfantryUnit()
@@ -25,7 +24,7 @@ namespace BattleSim {
 
 	}
 
-	void InfantryUnit::attack(Unit* enemy) {
+	void InfantryUnit::attack(Unit& enemy) {
 
 	}
 

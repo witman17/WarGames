@@ -1,6 +1,6 @@
 #pragma once
 
-#include <list>
+#include <set>
 #include <string.h>
 #include <Unit.h>
 
@@ -8,7 +8,7 @@ using namespace std;
 
 namespace BattleSim 
 {
-	enum class armyStatus
+	enum class ArmyStatus
 	{
 			WARFARE,
 			VICTORY,
@@ -19,26 +19,20 @@ namespace BattleSim
 	{
 	protected:
 		string name;
-		list<Army*> enemies;
-		list<Unit*> units;
-		armyStatus status;
+		set<Army*> enemies;
+		set<Unit*> units;
+		ArmyStatus status;
 
 	public:
 		Army();
-		Army(string name, list<Army*> &enemies, list<Unit*> &units);
 		~Army();
 		string getName();
-		armyStatus getStatus();
-		list<Army*> getEnemies();
-		list<Unit*> getUnits();
+		ArmyStatus getStatus();
+		set<Army*> getEnemies();
+		void setEnemies(set<Army*> enemies);
+		set<Unit*> getUnits();
 		void addUnit(Unit &unit);
-		void removeUnit(unsigned index);
 		void battle();
-
-	protected:
-		void moveUnsits();
-		void encounterEnemyUnits();
-
 	
 	};
 
