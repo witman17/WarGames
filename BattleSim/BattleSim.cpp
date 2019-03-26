@@ -25,7 +25,7 @@ namespace BattleSim {
 
 	set<Unit*> BattleSim::getActiveUnits()
 	{
-		return this->getActiveUnits;
+		return this->activeUnits;
 	}
 
 	void BattleSim::runSimulationStep()

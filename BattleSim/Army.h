@@ -2,12 +2,13 @@
 
 #include <set>
 #include <string.h>
-#include <Unit.h>
 
 using namespace std;
 
 namespace BattleSim 
 {
+	class Unit;
+
 	enum class ArmyStatus
 	{
 			WARFARE,
@@ -28,10 +29,11 @@ namespace BattleSim
 		~Army();
 		string getName();
 		ArmyStatus getStatus();
-		set<Army*> getEnemies();
-		void setEnemies(set<Army*> enemies);
-		set<Unit*> getUnits();
+		set<Army*>& getEnemies();
+		void setEnemies(set<Army*> &enemies);
+		set<Unit*>& getUnits();
 		void addUnit(Unit &unit);
+		void removeUnit(Unit &unit);
 		void battle();
 	
 	};

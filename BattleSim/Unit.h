@@ -3,12 +3,13 @@
 #include <pch.h>
 #include <list>
 #include <string.h>
-#include <Army.h>
 
 using namespace std;
 using namespace Windows::Foundation::Numerics;
 
 namespace BattleSim {
+
+	class Army;
 	//enum unitstatus
 	//{
 	//	ready,
@@ -19,7 +20,7 @@ namespace BattleSim {
 	class Unit
 	{
 	protected:
-		Army* army;
+		Army *army = nullptr;
 		string name = "Basic Unit";
 		float2 position = float2(0.0, 0.0);
 		float speed = 1.0;
@@ -34,7 +35,7 @@ namespace BattleSim {
 		virtual ~Unit() = 0;
 		virtual void attack(Unit& enemy) = 0;
 		virtual void defend(unsigned damage) = 0;
-		virtual void move(float2 position) = 0;
+		virtual void move(float2 position);
 		virtual Unit* getClosestEnemyUnit();
 		virtual bool isUnitInRange(Unit& unit);
 		float getDistance(float2 position);

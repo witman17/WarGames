@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Army.h"
 
+#include "Unit.h"
+
 using namespace std;
 
 namespace BattleSim {
@@ -21,7 +23,16 @@ namespace BattleSim {
 
 	void Army::battle() 
 	{
-		
+		for (set<Unit*>::iterator it = units.begin(); it != units.end(); it++) {
+			Unit *unit = *it;
+			Unit *enemy = unit->getClosestEnemyUnit();
+			if (unit->isUnitInRange(*enemy)) {
+				unit->attack(*enemy);
+			}
+			else {
+				unit->move(enemy->getPosition());
+			}
+		}
 	}
 
 	ArmyStatus Army::getStatus() {
@@ -29,21 +40,26 @@ namespace BattleSim {
 	}
 
 	set<Army*> Army::getEnemies() {
-		return enemies;
+		return this->enemies;
 	}
 
-	void Army::setEnemies(set<Army*> enemies)
+	void Army::setEnemies(set<Army*> &enemies)
 	{
 		this->enemies = enemies;
 	}
 
 	set<Unit*> Army::getUnits() {
-		return units;
+		return this->units;
 	}
 
 	void Army::addUnit(Unit &unit)
 	{
 		this->units.insert(&unit);
+	}
+
+	void Army::removeUnit(Unit &unit)
+	{
+		this->units.erase(&unit);
 	}
 
 }

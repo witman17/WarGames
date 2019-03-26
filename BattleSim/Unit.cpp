@@ -25,6 +25,11 @@ Unit::~Unit()
 }
 
 
+void Unit::move(float2 position)
+{
+
+}
+
 Unit* Unit::getClosestEnemyUnit()
 {
 	Unit *closestUnit = nullptr;
