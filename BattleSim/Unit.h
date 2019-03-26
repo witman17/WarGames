@@ -35,14 +35,15 @@ namespace BattleSim {
 		virtual void attack(Unit& enemy) = 0;
 		virtual void defend(unsigned damage) = 0;
 		virtual void move(float2 position) = 0;
-		virtual Unit* getEnemyUnitInRange();
+		virtual Unit* getClosestEnemyUnit();
+		virtual bool isUnitInRange(Unit& unit);
 		float getDistance(float2 position);
 
 		Army* getArmy();
 		string getName();
 		float2 getPosition();
 		float getSpeed();
-		float getRange();
+		virtual float getRange();
 		unsigned getSize();
 		unsigned getDamage();
 		unsigned getDefence();

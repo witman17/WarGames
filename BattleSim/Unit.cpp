@@ -4,6 +4,8 @@
 #include "Math.h"
 #include "BattleSim.h"
 
+#include <limits>
+
 using namespace BattleSim;
 
 Unit::Unit()
@@ -23,20 +25,35 @@ Unit::~Unit()
 }
 
 
-Unit* Unit::getEnemyUnitInRange()
+Unit* Unit::getClosestEnemyUnit()
 {
+	Unit *closestUnit = nullptr;
+	float closestDistance = numeric_limits<float>::infinity();
+	float distance;
+
 	set<Unit*> units = BattleSim::getInstance().getActiveUnits();
 	for (set<Unit*>::iterator iter = units.begin(); iter != units.end(); iter++) {
-		Unit *unit = *iter;
-		if (unit != nullptr) {
-			if (unit->army != this->army) {
-				if (this->getDistance(unit->position) <= this->range) {
-					return unit;
+		Unit *enemy = *iter;
+		if (enemy != nullptr) {
+			if (enemy->army != this->army) {
+				distance = this->getDistance(enemy->position);
+				if (distance < closestDistance) {
+					closestDistance = distance;
+					closestUnit = enemy;
 				}
 			}
 		}
 	}
-	return nullptr;
+	return closestUnit;
+}
+
+bool Unit::isUnitInRange(Unit &unit)
+{
+	if (getDistance(unit.position) <= getRange()) {
+		return true;
+	}
+
+	return false;
 }
 
 float Unit::getDistance(float2 position)

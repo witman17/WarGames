@@ -27,7 +27,7 @@ namespace BattleSim {
 
 	void CavalryUnit::attack(Unit &enemy)
 	{
-		if (this->getDistance(enemy.getPosition()) > range) {
+		if (isUnitInChargeRange(enemy)) {
 			charge(enemy);
 		}
 		else
@@ -46,25 +46,24 @@ namespace BattleSim {
 
 	}
 
-	Unit * CavalryUnit::getEnemyUnitInRange()
+	bool CavalryUnit::isUnitInChargeRange(Unit &unit)
 	{
-		set<Unit*> units = BattleSim::getInstance().getActiveUnits();
-		for (set<Unit*>::iterator iter = units.begin(); iter != units.end(); iter++) {
-			Unit *unit = *iter;
-			if (unit != nullptr) {
-				if (unit->getArmy() != this->army) {
-					if (this->getDistance(unit->getPosition()) <= this->chargeRange) {
-						return unit;
-					}
-				}
-			}
+		float distance = getDistance(unit.getPosition());
+		if (distance > range && distance <= chargeRange) {
+			return true;
 		}
-		return nullptr;
+
+		return false;
 	}
 
-	void CavalryUnit::charge(Unit & enemy)
+	void CavalryUnit::charge(Unit &enemy)
 	{
 
+	}
+
+	float CavalryUnit::getRange()
+	{
+		return chargeRange;
 	}
 
 }
