@@ -27,7 +27,17 @@ Unit::~Unit()
 
 void Unit::move(float2 position)
 {
-
+	float length;
+	float2 dPosition;
+	dPosition.x = position.x - this->position.x;
+	dPosition.y = position.y - this->position.y;
+	length = sqrtf(dPosition.x * dPosition.x + dPosition.y * dPosition.y);
+	dPosition.x /= length;
+	dPosition.y /= length;
+	dPosition.x *= this->speed;
+	dPosition.y *= this->speed;
+	this->position.x += dPosition.x;
+	this->position.y += dPosition.y;
 }
 
 Unit* Unit::getClosestEnemyUnit()
