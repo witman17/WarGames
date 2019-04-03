@@ -3,6 +3,8 @@
 
 #include "BattleSim.h"
 
+using namespace Windows::Foundation::Numerics;
+
 namespace BattleSim {
 
 	CavalryUnit::CavalryUnit():Unit()
@@ -13,7 +15,7 @@ namespace BattleSim {
 		this->speed = 2.5;
 	}
 
-	CavalryUnit::CavalryUnit(Army &army, string name, float2 position, unsigned size):Unit(army, name, position, size)
+	CavalryUnit::CavalryUnit(Army &army, string name, Position position, unsigned size):Unit(army, name, position, size)
 	{
 		this->damage = 2;
 		this->range = 1.5;
@@ -41,14 +43,14 @@ namespace BattleSim {
 
 	}
 
-	void CavalryUnit::move(float2 position)
+	void CavalryUnit::move(Position position)
 	{
 
 	}
 
 	bool CavalryUnit::isUnitInChargeRange(Unit &unit)
 	{
-		float distance = getDistance(unit.getPosition());
+		float distance = this->position.getDistance(unit.getPosition());
 		if (distance > range && distance <= chargeRange) {
 			return true;
 		}

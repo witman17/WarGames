@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "lightArmed.h"
 
+using namespace Windows::Foundation::Numerics;
 
 namespace BattleSim {
 	LightArmed::LightArmed(Unit &unit) :UnitDecorator(unit)
@@ -19,7 +20,7 @@ namespace BattleSim {
 	{
 	}
 
-	void LightArmed::move(float2 position)
+	void LightArmed::move(Position position)
 	{
 	}
 }

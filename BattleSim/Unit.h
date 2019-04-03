@@ -3,9 +3,10 @@
 #include <pch.h>
 #include <list>
 #include <string.h>
+#include <random>
+#include <Position.h>
 
 using namespace std;
-using namespace Windows::Foundation::Numerics;
 
 namespace BattleSim {
 
@@ -20,29 +21,29 @@ namespace BattleSim {
 	class Unit
 	{
 	protected:
+		default_random_engine generator;
 		Army *army = nullptr;
 		string name = "Basic Unit";
-		float2 position = float2(0.0, 0.0);
+		Position position = Position(0.0, 0.0);
 		float speed = 1.0;
 		float range = 1.0;
-		unsigned size = 100;
+		int size = 100;
 		unsigned damage = 1;
 		unsigned defence = 1;
 
 	public:
 		Unit();
-		Unit(Army &army, string name, float2 position, unsigned size);
+		Unit(Army &army, string name, Position position, unsigned size);
 		virtual ~Unit() = 0;
 		virtual void attack(Unit& enemy) = 0;
 		virtual void defend(unsigned damage) = 0;
-		virtual void move(float2 position);
+		virtual void move(Position position);
 		virtual Unit* getClosestEnemyUnit();
 		virtual bool isUnitInRange(Unit& unit);
-		float getDistance(float2 position);
 
 		Army* getArmy();
 		string getName();
-		float2 getPosition();
+		Position getPosition();
 		float getSpeed();
 		virtual float getRange();
 		unsigned getSize();

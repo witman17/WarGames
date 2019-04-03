@@ -9,12 +9,12 @@ namespace BattleSim {
 
 	public:
 		CavalryUnit();
-		CavalryUnit(Army &army, string name, float2 position, unsigned size);
+		CavalryUnit(Army &army, string name, Position position, unsigned size);
 		~CavalryUnit();
 
 		virtual void attack(Unit& enemy);
 		virtual void defend(unsigned damage);
-		virtual void move(float2 position);
+		virtual void move(Position position);
 		bool isUnitInChargeRange(Unit &unit);
 
 		void charge(Unit& enemy);

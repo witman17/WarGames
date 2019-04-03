@@ -9,6 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Button Name="Test" Click="Test_Click" Content="Test" RenderTransformOrigin="14.152,0.594"/>
 
     </Grid>
 </Page>

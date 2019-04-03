@@ -16,6 +16,7 @@
     <ClCompile Include="heavyArmed.cpp" />
     <ClCompile Include="lightArmed.cpp" />
     <ClCompile Include="CavalryUnit.cpp" />
+    <ClCompile Include="Position.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BattleSim.h" />
@@ -28,6 +29,7 @@
     <ClInclude Include="heavyArmed.h" />
     <ClInclude Include="lightArmed.h" />
     <ClInclude Include="CavalryUnit.h" />
+    <ClInclude Include="Position.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram2.cd" />

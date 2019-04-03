@@ -7,6 +7,15 @@
 //------------------------------------------------------------------------------
 
 
+namespace Windows {
+    namespace UI {
+        namespace Xaml {
+            namespace Controls {
+                ref class Button;
+            }
+        }
+    }
+}
 
 namespace WarGames
 {
@@ -23,6 +32,7 @@ namespace WarGames
     private:
         bool _contentLoaded;
     
+        private: ::Windows::UI::Xaml::Controls::Button^ Test;
     };
 }
 

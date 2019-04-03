@@ -17,5 +17,7 @@ namespace WarGames
 	public:
 		MainPage();
 
+	private:
+		void Test_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	};
 }

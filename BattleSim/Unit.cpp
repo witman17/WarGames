@@ -7,12 +7,13 @@
 #include <limits>
 
 using namespace BattleSim;
+using namespace Windows::Foundation::Numerics;
 
 Unit::Unit()
 {
 }
 
-Unit::Unit(Army &army, string name, float2 position, unsigned size)
+Unit::Unit(Army &army, string name, Position position, unsigned size)
 {
 	this->army = &army;
 	this->name = name;
@@ -25,19 +26,17 @@ Unit::~Unit()
 }
 
 
-void Unit::move(float2 position)
+void Unit::move(Position position)
 {
 	float length;
-	float2 dPosition;
-	dPosition.x = position.x - this->position.x;
-	dPosition.y = position.y - this->position.y;
-	length = sqrtf(dPosition.x * dPosition.x + dPosition.y * dPosition.y);
-	dPosition.x /= length;
-	dPosition.y /= length;
-	dPosition.x *= this->speed;
-	dPosition.y *= this->speed;
-	this->position.x += dPosition.x;
-	this->position.y += dPosition.y;
+	Position dPosition = Position(position.getX() - this->position.getX(), position.getY() - this->position.getY());
+	length = sqrtf(dPosition.getX() * dPosition.getX() + dPosition.getY() * dPosition.getY());
+	dPosition.setX(dPosition.getX() / length);
+	dPosition.setY(dPosition.getY() / length);
+	dPosition.setX(dPosition.getX() * this->speed);
+	dPosition.setY(dPosition.getY() * this->speed);
+	this->position.setX(this->position.getX() + dPosition.getX());
+	this->position.setY(this->position.getY() + dPosition.getY());
 }
 
 Unit* Unit::getClosestEnemyUnit()
@@ -51,7 +50,7 @@ Unit* Unit::getClosestEnemyUnit()
 		Unit *enemy = *iter;
 		if (enemy != nullptr) {
 			if (enemy->army != this->army) {
-				distance = this->getDistance(enemy->position);
+				distance = this->position.getDistance(enemy->position);
 				if (distance < closestDistance) {
 					closestDistance = distance;
 					closestUnit = enemy;
@@ -64,16 +63,11 @@ Unit* Unit::getClosestEnemyUnit()
 
 bool Unit::isUnitInRange(Unit &unit)
 {
-	if (getDistance(unit.position) <= getRange()) {
+	if (this->position.getDistance(unit.position) <= getRange()) {
 		return true;
 	}
 
 	return false;
-}
-
-float Unit::getDistance(float2 position)
-{
-	return sqrtf(powf(position.x - this->position.x, 2.0) + powf(position.y - this->position.y, 2.0));
 }
 
 Army* Unit::getArmy()
@@ -86,7 +80,7 @@ string Unit::getName()
 	return this->name;
 }
 
-float2 Unit::getPosition()
+Position Unit::getPosition()
 {
 	return position;
 }

@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "heavyArmed.h"
 
+using namespace Windows::Foundation::Numerics;
+
 namespace BattleSim {
 	HeavyArmed::HeavyArmed(Unit &unit):UnitDecorator(unit)
 	{
@@ -20,7 +22,7 @@ namespace BattleSim {
 	{
 	}
 
-	void HeavyArmed::move(float2 position)
+	void HeavyArmed::move(Position position)
 	{
 
 	}

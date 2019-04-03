@@ -10,6 +10,6 @@ namespace BattleSim {
 		~LightArmed();
 		void attack(Unit &enemy);
 		void defend(unsigned damage);
-		void move(float2 position);
+		void move(Position position);
 	};
 }

@@ -14,6 +14,22 @@ namespace BattleSim {
 		return instance;
 	}
 
+	void BattleSim::setUnitDestroyed(Unit * unit)
+	{
+		activeUnits.erase(unit);
+		destroyedUnits.insert(unit);
+	}
+
+	void BattleSim::registerArmy(Army & army)
+	{
+		armies.insert(&army);
+	}
+
+	void BattleSim::registerUnit(Unit & unit)
+	{
+		activeUnits.insert(&unit);
+	}
+
 	BattleSim::~BattleSim()
 	{
 	}
