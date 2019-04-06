@@ -27,7 +27,7 @@ namespace BattleSim {
 		set<Army*> getArmies();
 		set<Unit*> getActiveUnits();
 		void runSimulationStep();
-
+		bool endCondition();
 	};
 
 }

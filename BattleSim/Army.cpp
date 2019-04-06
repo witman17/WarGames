@@ -23,6 +23,14 @@ namespace BattleSim {
 
 	void Army::battle() 
 	{
+		if (units.size() == 0) {
+			status = ArmyStatus::DEFEATED;
+		}
+
+		if (status != ArmyStatus::WARFARE) {
+			return;
+		}
+
 		for (set<Unit*>::iterator it = units.begin(); it != units.end(); it++) {
 			Unit *unit = *it;
 			Unit *enemy = unit->getClosestEnemyUnit();
@@ -37,6 +45,11 @@ namespace BattleSim {
 
 	ArmyStatus Army::getStatus() {
 		return status;
+	}
+
+	void Army::setStatus(ArmyStatus status)
+	{
+		this->status = status;
 	}
 
 	set<Army*> Army::getEnemies() {
