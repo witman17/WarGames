@@ -7,6 +7,7 @@
 #include "MainPage.xaml.h"
 #include "BattleSim.h"
 #include "InfantryUnit.h"
+#include "CavalryUnit.h"
 
 using namespace WarGames;
 
@@ -33,11 +34,11 @@ MainPage::MainPage()
 void WarGames::MainPage::Test_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
 	BattleSim::BattleSim &sim = BattleSim::BattleSim::getInstance();
-	BattleSim::Army army_1 = BattleSim::Army();
-	BattleSim::Army army_2 = BattleSim::Army();
-	BattleSim::Unit &unit_1 = BattleSim::InfantryUnit(army_1, "Unit One", BattleSim::Position(1.0, 2.0), 100);
-	BattleSim::Unit &unit_2 = BattleSim::InfantryUnit(army_1, "Unit Two", BattleSim::Position(1.0, -2.0), 400);
-	BattleSim::Unit &unit_3 = BattleSim::InfantryUnit(army_2, "Unit Three", BattleSim::Position(50.0, 2.0), 250);
+	BattleSim::Army army_1 = BattleSim::Army("ARMY 1");
+	BattleSim::Army army_2 = BattleSim::Army("ARMY 2");
+	BattleSim::Unit &unit_1 = BattleSim::CavalryUnit(army_1, "CAV Unit One", BattleSim::Position(1.0, 2.0), 250);
+	BattleSim::Unit &unit_2 = BattleSim::InfantryUnit(army_1, "Unit Two", BattleSim::Position(1.0, -2.0), 250);
+	BattleSim::Unit &unit_3 = BattleSim::CavalryUnit(army_2, "CAV Unit Three", BattleSim::Position(50.0, 2.0), 250);
 	BattleSim::Unit &unit_4 = BattleSim::InfantryUnit(army_2, "Unit Four", BattleSim::Position(50.0, -4.0), 250);
 	army_1.addUnit(unit_1);
 	army_1.addUnit(unit_2);

@@ -12,15 +12,18 @@ namespace BattleSim {
 	{
 	}
 
-	void LightArmed::attack(BattleSim::Unit &enemy)
+	void LightArmed::attack(Unit &enemy)
 	{
+
 	}
 
 	void LightArmed::defend(unsigned damage)
 	{
+
 	}
 
 	void LightArmed::move(Position position)
 	{
+
 	}
 }
