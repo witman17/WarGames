@@ -34,18 +34,25 @@ namespace BattleSim {
 		}
 		else
 		{
-			//TODO normal attack
+			double sizeBonus = size * attackDistribution(generator) / 100.0;
+			unsigned damage = this->damage + sizeBonus + attackDistribution(generator);
+			enemy.defend(damage);
 		}
 	}
 
 	void CavalryUnit::defend(unsigned damage)
 	{
-
+		double sizeBonus = size * defendDistribution(generator) / 100.0;
+		size -= damage - defence - sizeBonus + defendDistribution(generator);
+		if (size <= 0) {
+			BattleSim::getInstance().setUnitDestroyed(this);
+			size = 0;
+		}
 	}
 
 	void CavalryUnit::move(Position position)
 	{
-
+		Unit::move(position);
 	}
 
 	bool CavalryUnit::isUnitInChargeRange(Unit &unit)
@@ -60,7 +67,11 @@ namespace BattleSim {
 
 	void CavalryUnit::charge(Unit &enemy)
 	{
-
+		double distanceBonus = this->position.getDistance(enemy.getPosition()) * chargeDistribution(generator);
+		double sizeBonus = size * chargeDistribution(generator) / 100.0;
+		unsigned damage = this->damage + sizeBonus + distanceBonus + chargeDistribution(generator);
+		Unit::move(enemy.getPosition());
+		enemy.defend(damage);
 	}
 
 	float CavalryUnit::getRange()

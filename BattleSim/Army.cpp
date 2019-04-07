@@ -11,6 +11,11 @@ namespace BattleSim {
 
 	}
 
+	Army::Army(string name)
+	{
+		this->name = name;
+	}
+
 	Army::~Army()
 	{
 
@@ -19,6 +24,11 @@ namespace BattleSim {
 	string Army::getName()
 	{
 		return this->name;
+	}
+
+	void Army::setName(string name)
+	{
+		this->name = name;
 	}
 
 	void Army::battle() 

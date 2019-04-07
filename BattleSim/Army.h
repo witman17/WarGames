@@ -26,8 +26,10 @@ namespace BattleSim
 
 	public:
 		Army();
+		Army(string name);
 		~Army();
 		string getName();
+		void setName(string name);
 		ArmyStatus getStatus();
 		void setStatus(ArmyStatus status);
 		set<Army*> getEnemies();

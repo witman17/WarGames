@@ -6,7 +6,9 @@ namespace BattleSim {
 	{
 	protected:
 		float chargeRange = 2;
-
+		normal_distribution<double> attackDistribution = normal_distribution<>(5.0, 2.5);
+		gamma_distribution<double> chargeDistribution = gamma_distribution<>(5.0, 2.5);
+		chi_squared_distribution<double> defendDistribution = chi_squared_distribution<>(1.5);
 	public:
 		CavalryUnit();
 		CavalryUnit(Army &army, string name, Position position, unsigned size);
