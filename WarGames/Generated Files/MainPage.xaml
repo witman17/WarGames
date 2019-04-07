@@ -9,7 +9,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Button Name="Test" Click="Test_Click" Content="Test" RenderTransformOrigin="14.152,0.594"/>
+        <Button x:ConnectionId='1' Name="Test"                    Content="Test" RenderTransformOrigin="14.152,0.594"/>
 
     </Grid>
 </Page>
+
