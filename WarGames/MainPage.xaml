@@ -16,12 +16,18 @@
                 IsTabStop="False"
                 Header="GRY WOJENNE">
         <NavigationView.MenuItems>
-            <NavigationViewItem Icon="Home" Content="Home" Tag="Home_Page" />
-            <NavigationViewItem Icon="Flag" Tag="Battle_Simulation">
+            <NavigationViewItem Icon="Home">
+                <TextBlock Tag="Home_Page">Gry Wojenne</TextBlock>
+            </NavigationViewItem>
+            <NavigationViewItem Icon="Flag">
                 <TextBlock Tag="Battle_Simulation">Symulacja Bitwy</TextBlock>
             </NavigationViewItem>
-            <NavigationViewItem Icon="Placeholder" Content="TODO" Tag="TODO_Page" />
-            <NavigationViewItem Icon="Help" Content="O Aplikacji" Tag="About_Page" />
+            <NavigationViewItem Icon="Placeholder">
+                <TextBlock Tag="TODO_Page">TO DO</TextBlock>
+            </NavigationViewItem>
+            <NavigationViewItem Icon="Help">
+                <TextBlock Tag="About_Page">O Aplikacji</TextBlock>
+            </NavigationViewItem>
         </NavigationView.MenuItems>
         <Frame x:Name="contentFrame"></Frame>
     </NavigationView>
