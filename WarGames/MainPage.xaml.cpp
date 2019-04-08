@@ -6,6 +6,7 @@
 #include "pch.h"
 #include "MainPage.xaml.h"
 #include "HomePage.xaml.h"
+#include "BattleSimulation.xaml.h"
 
 using namespace WarGames;
 
@@ -40,7 +41,8 @@ void WarGames::MainPage::nvTopLevelNav_Loaded(Platform::Object^ sender, Windows:
 		if (nvItem->Tag->ToString() == "Home_Page") {
 			nvTopLevelNav->SelectedItem = item;
 			break;
-		}
+		} 
+
 	}
 	
 	contentFrame->Navigate(TypeName(HomePage::typeid));
@@ -55,6 +57,9 @@ void WarGames::MainPage::nvTopLevelNav_SelectionChanged(Windows::UI::Xaml::Contr
 
 void WarGames::MainPage::nvTopLevelNav_ItemInvoked(Windows::UI::Xaml::Controls::NavigationView^ sender, Windows::UI::Xaml::Controls::NavigationViewItemInvokedEventArgs^ args)
 {
+	TextBlock^ test = dynamic_cast<TextBlock^>(args->InvokedItem);
+	if (test->Tag->ToString() == "Battle_Simulation") {
+		contentFrame->Navigate(TypeName(BattleSimulation::typeid));
+	}
 	
-	//TODO dalej: https://blogs.msdn.microsoft.com/appconsult/2018/05/06/using-the-navigationview-in-your-uwp-applications/
 }

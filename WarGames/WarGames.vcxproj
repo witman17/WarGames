@@ -8,7 +8,7 @@
     <AppContainerApplication>true</AppContainerApplication>
     <ApplicationType>Windows Store</ApplicationType>
     <WindowsTargetPlatformVersion Condition=" '$(WindowsTargetPlatformVersion)' == '' ">10.0.17134.0</WindowsTargetPlatformVersion>
-    <WindowsTargetPlatformMinVersion>10.0.10240.0</WindowsTargetPlatformMinVersion>
+    <WindowsTargetPlatformMinVersion>10.0.17134.0</WindowsTargetPlatformMinVersion>
     <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -137,6 +137,9 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BattleSimulation.xaml.h">
+      <DependentUpon>BattleSimulation.xaml</DependentUpon>
+    </ClInclude>
     <ClInclude Include="HomePage.xaml.h">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </ClInclude>
@@ -152,6 +155,9 @@
     <ApplicationDefinition Include="App.xaml">
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="BattleSimulation.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="HomePage.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -177,6 +183,9 @@
   <ItemGroup>
     <ClCompile Include="App.xaml.cpp">
       <DependentUpon>App.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="BattleSimulation.xaml.cpp">
+      <DependentUpon>BattleSimulation.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="HomePage.xaml.cpp">
       <DependentUpon>HomePage.xaml</DependentUpon>

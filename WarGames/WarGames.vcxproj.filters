@@ -59,5 +59,6 @@
   <ItemGroup>
     <Page Include="MainPage.xaml" />
     <Page Include="HomePage.xaml" />
+    <Page Include="BattleSimulation.xaml" />
   </ItemGroup>
 </Project>

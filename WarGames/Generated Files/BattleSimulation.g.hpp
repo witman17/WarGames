@@ -13,27 +13,27 @@
 extern "C" __declspec(dllimport) int __stdcall IsDebuggerPresent();
 #endif
 
-#include "HomePage.xaml.h"
+#include "BattleSimulation.xaml.h"
 
-void ::WarGames::HomePage::InitializeComponent()
+void ::WarGames::BattleSimulation::InitializeComponent()
 {
     if (_contentLoaded)
     {
         return;
     }
     _contentLoaded = true;
-    ::Windows::Foundation::Uri^ resourceLocator = ref new ::Windows::Foundation::Uri(L"ms-appx:///HomePage.xaml");
+    ::Windows::Foundation::Uri^ resourceLocator = ref new ::Windows::Foundation::Uri(L"ms-appx:///BattleSimulation.xaml");
     ::Windows::UI::Xaml::Application::LoadComponent(this, resourceLocator, ::Windows::UI::Xaml::Controls::Primitives::ComponentResourceLocation::Application);
 }
 
-void ::WarGames::HomePage::Connect(int __connectionId, ::Platform::Object^ __target)
+void ::WarGames::BattleSimulation::Connect(int __connectionId, ::Platform::Object^ __target)
 {
     __connectionId;         // unreferenced 
     __target;               // unreferenced
     _contentLoaded = true;
 }
 
-::Windows::UI::Xaml::Markup::IComponentConnector^ ::WarGames::HomePage::GetBindingConnector(int __connectionId, ::Platform::Object^ __target)
+::Windows::UI::Xaml::Markup::IComponentConnector^ ::WarGames::BattleSimulation::GetBindingConnector(int __connectionId, ::Platform::Object^ __target)
 {
     __connectionId;         // unreferenced
     __target;               // unreferenced

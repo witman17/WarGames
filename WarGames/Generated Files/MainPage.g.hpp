@@ -6,6 +6,9 @@
 //------------------------------------------------------------------------------
 #include "pch.h"
 
+#pragma warning(push)
+#pragma warning(disable: 4100) // unreferenced formal parameter
+
 #if defined _DEBUG && !defined DISABLE_XAML_GENERATED_BINDING_DEBUG_OUTPUT
 extern "C" __declspec(dllimport) int __stdcall IsDebuggerPresent();
 #endif
@@ -27,22 +30,22 @@ void ::WarGames::MainPage::Connect(int __connectionId, ::Platform::Object^ __tar
 {
     switch (__connectionId)
     {
-        case 1:
-            {
-                this->nvTopLevelNav = safe_cast<::Windows::UI::Xaml::Controls::NavigationView^>(__target);
-                (safe_cast<::Windows::UI::Xaml::Controls::NavigationView^>(this->nvTopLevelNav))->Loaded += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::WarGames::MainPage::*)
-                    (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&MainPage::nvTopLevelNav_Loaded);
-                (safe_cast<::Windows::UI::Xaml::Controls::NavigationView^>(this->nvTopLevelNav))->SelectionChanged += ref new ::Windows::Foundation::TypedEventHandler<::Windows::UI::Xaml::Controls::NavigationView^, ::Windows::UI::Xaml::Controls::NavigationViewSelectionChangedEventArgs^>(this, (void (::WarGames::MainPage::*)
-                    (::Windows::UI::Xaml::Controls::NavigationView^, ::Windows::UI::Xaml::Controls::NavigationViewSelectionChangedEventArgs^))&MainPage::nvTopLevelNav_SelectionChanged);
-                (safe_cast<::Windows::UI::Xaml::Controls::NavigationView^>(this->nvTopLevelNav))->ItemInvoked += ref new ::Windows::Foundation::TypedEventHandler<::Windows::UI::Xaml::Controls::NavigationView^, ::Windows::UI::Xaml::Controls::NavigationViewItemInvokedEventArgs^>(this, (void (::WarGames::MainPage::*)
-                    (::Windows::UI::Xaml::Controls::NavigationView^, ::Windows::UI::Xaml::Controls::NavigationViewItemInvokedEventArgs^))&MainPage::nvTopLevelNav_ItemInvoked);
-            }
-            break;
-        case 2:
-            {
-                this->contentFrame = safe_cast<::Windows::UI::Xaml::Controls::Frame^>(__target);
-            }
-            break;
+    case 2:
+        {
+            this->nvTopLevelNav = safe_cast<::Windows::UI::Xaml::Controls::NavigationView^>(__target);
+            (safe_cast<::Windows::UI::Xaml::Controls::NavigationView^>(this->nvTopLevelNav))->Loaded += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::WarGames::MainPage::*)
+                (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&MainPage::nvTopLevelNav_Loaded);
+            (safe_cast<::Windows::UI::Xaml::Controls::NavigationView^>(this->nvTopLevelNav))->SelectionChanged += ref new ::Windows::Foundation::TypedEventHandler<::Windows::UI::Xaml::Controls::NavigationView^, ::Windows::UI::Xaml::Controls::NavigationViewSelectionChangedEventArgs^>(this, (void (::WarGames::MainPage::*)
+                (::Windows::UI::Xaml::Controls::NavigationView^, ::Windows::UI::Xaml::Controls::NavigationViewSelectionChangedEventArgs^))&MainPage::nvTopLevelNav_SelectionChanged);
+            (safe_cast<::Windows::UI::Xaml::Controls::NavigationView^>(this->nvTopLevelNav))->ItemInvoked += ref new ::Windows::Foundation::TypedEventHandler<::Windows::UI::Xaml::Controls::NavigationView^, ::Windows::UI::Xaml::Controls::NavigationViewItemInvokedEventArgs^>(this, (void (::WarGames::MainPage::*)
+                (::Windows::UI::Xaml::Controls::NavigationView^, ::Windows::UI::Xaml::Controls::NavigationViewItemInvokedEventArgs^))&MainPage::nvTopLevelNav_ItemInvoked);
+        }
+        break;
+    case 3:
+        {
+            this->contentFrame = safe_cast<::Windows::UI::Xaml::Controls::Frame^>(__target);
+        }
+        break;
     }
     _contentLoaded = true;
 }
@@ -53,5 +56,7 @@ void ::WarGames::MainPage::Connect(int __connectionId, ::Platform::Object^ __tar
     __target;               // unreferenced
     return nullptr;
 }
+
+#pragma warning(pop)
 
 
