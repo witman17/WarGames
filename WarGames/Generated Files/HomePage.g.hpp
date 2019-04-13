@@ -28,8 +28,37 @@ void ::WarGames::HomePage::InitializeComponent()
 
 void ::WarGames::HomePage::Connect(int __connectionId, ::Platform::Object^ __target)
 {
-    __connectionId;         // unreferenced 
-    __target;               // unreferenced
+    switch (__connectionId)
+    {
+    case 2:
+        {
+            this->New = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
+            (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->New))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::WarGames::HomePage::*)
+                (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&HomePage::New_Click);
+        }
+        break;
+    case 3:
+        {
+            this->Load = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
+            (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->Load))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::WarGames::HomePage::*)
+                (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&HomePage::Load_Click);
+        }
+        break;
+    case 4:
+        {
+            this->Stats = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
+            (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->Stats))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::WarGames::HomePage::*)
+                (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&HomePage::Stats_Click);
+        }
+        break;
+    case 5:
+        {
+            this->About = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
+            (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->About))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::WarGames::HomePage::*)
+                (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&HomePage::About_Click);
+        }
+        break;
+    }
     _contentLoaded = true;
 }
 

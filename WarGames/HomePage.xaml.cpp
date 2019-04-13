@@ -25,3 +25,28 @@ HomePage::HomePage()
 {
 	InitializeComponent();
 }
+
+
+void WarGames::HomePage::New_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+
+
+}
+
+
+void WarGames::HomePage::Load_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+
+}
+
+
+void WarGames::HomePage::Stats_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+
+}
+
+
+void WarGames::HomePage::About_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+
+}

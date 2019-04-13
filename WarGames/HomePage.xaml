@@ -8,7 +8,10 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Home Page</TextBlock>
-    </Grid>
+    <StackPanel VerticalAlignment="Center">
+        <Button Name="New" FontSize="60" HorizontalAlignment="Center" Margin="20" Click="New_Click">Nowa Symulacja </Button>
+        <Button Name="Load" FontSize="60" HorizontalAlignment="Center" Margin="20" Click="Load_Click">Wczytaj Symulację</Button>
+        <Button Name="Stats" FontSize="60" HorizontalAlignment="Center" Margin="20" Click="Stats_Click">Statystyki</Button>
+        <Button Name="About" FontSize="60" HorizontalAlignment="Center" Margin="20" Click="About_Click">O Aplikacji</Button>
+    </StackPanel>
 </Page>

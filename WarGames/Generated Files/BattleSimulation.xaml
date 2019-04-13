@@ -9,7 +9,23 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">BATTLE SIM</TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBox Text="Armia I" BorderThickness="0" MaxLength="20" FontSize="60" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox Text="Armia II" Grid.Column="1" BorderThickness="0" MaxLength="20" FontSize="60" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <StackPanel Grid.Column="0" Grid.Row="2" Background="Lavender">
+            <TextBlock Text="testets"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="2" Background="Lavender">
+            <TextBlock Text="testets"/>
+        </StackPanel>
     </Grid>
 </Page>
 
