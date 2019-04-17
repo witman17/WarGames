@@ -22,8 +22,11 @@
             <NavigationViewItem Icon="Flag">
                 <TextBlock Tag="Battle_Simulation">Symulacja Bitwy</TextBlock>
             </NavigationViewItem>
-            <NavigationViewItem Icon="Placeholder">
-                <TextBlock Tag="TODO_Page">TO DO</TextBlock>
+            <NavigationViewItem>
+                <NavigationViewItem.Icon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xED25;"/>
+                </NavigationViewItem.Icon>
+                <TextBlock Tag="Load_Page">Wczytaj Symulację</TextBlock>
             </NavigationViewItem>
             <NavigationViewItem Icon="Help">
                 <TextBlock Tag="About_Page">O Aplikacji</TextBlock>

@@ -20,16 +20,16 @@
     <ClCompile Include="MainPage.xaml.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="HomePage.xaml.cpp" />
-    <ClCompile Include="BattleSimulation.xaml.cpp" />
     <ClCompile Include="AboutPage.xaml.cpp" />
+    <ClCompile Include="NewPage.xaml.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="App.xaml.h" />
     <ClInclude Include="MainPage.xaml.h" />
     <ClInclude Include="HomePage.xaml.h" />
-    <ClInclude Include="BattleSimulation.xaml.h" />
     <ClInclude Include="AboutPage.xaml.h" />
+    <ClInclude Include="NewPage.xaml.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\LockScreenLogo.scale-200.png">
@@ -63,7 +63,8 @@
   <ItemGroup>
     <Page Include="MainPage.xaml" />
     <Page Include="HomePage.xaml" />
-    <Page Include="BattleSimulation.xaml" />
     <Page Include="AboutPage.xaml" />
+    <Page Include="LoadPage.xaml" />
+    <Page Include="NewPage.xaml" />
   </ItemGroup>
 </Project>

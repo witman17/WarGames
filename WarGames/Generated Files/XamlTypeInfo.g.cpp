@@ -10,14 +10,16 @@
 #include "XamlTypeInfo.g.h"
 
 #include "AboutPage.xaml.h"
-#include "BattleSimulation.xaml.h"
+#include "NewPage.xaml.h"
 #include "HomePage.xaml.h"
+#include "LoadPage.xaml.h"
 #include "App.xaml.h"
 #include "MainPage.xaml.h"
 #include "XamlBindingInfo.g.hpp"
 #include "AboutPage.g.hpp"
-#include "BattleSimulation.g.hpp"
+#include "NewPage.g.hpp"
 #include "HomePage.g.hpp"
+#include "LoadPage.g.hpp"
 #include "App.g.hpp"
 #include "MainPage.g.hpp"
 
@@ -74,36 +76,42 @@ struct TypeInfo
 const TypeInfo TypeInfos[] = 
 {
     //   0
-    L"WarGames.HomePage", L"",
-    &ActivateType<::WarGames::HomePage>, nullptr, nullptr, nullptr,
-    4, // Windows.UI.Xaml.Controls.Page
+    L"WarGames.NewPage", L"",
+    &ActivateType<::WarGames::NewPage>, nullptr, nullptr, nullptr,
+    5, // Windows.UI.Xaml.Controls.Page
     0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
     TypeInfo_Flags_IsLocalType | TypeInfo_Flags_None,
     //   1
-    L"WarGames.MainPage", L"",
-    &ActivateType<::WarGames::MainPage>, nullptr, nullptr, nullptr,
-    4, // Windows.UI.Xaml.Controls.Page
+    L"WarGames.HomePage", L"",
+    &ActivateType<::WarGames::HomePage>, nullptr, nullptr, nullptr,
+    5, // Windows.UI.Xaml.Controls.Page
     0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
     TypeInfo_Flags_IsLocalType | TypeInfo_Flags_None,
     //   2
-    L"WarGames.AboutPage", L"",
-    &ActivateType<::WarGames::AboutPage>, nullptr, nullptr, nullptr,
-    4, // Windows.UI.Xaml.Controls.Page
+    L"WarGames.LoadPage", L"",
+    &ActivateType<::WarGames::LoadPage>, nullptr, nullptr, nullptr,
+    5, // Windows.UI.Xaml.Controls.Page
     0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
     TypeInfo_Flags_IsLocalType | TypeInfo_Flags_None,
     //   3
-    L"WarGames.BattleSimulation", L"",
-    &ActivateType<::WarGames::BattleSimulation>, nullptr, nullptr, nullptr,
-    4, // Windows.UI.Xaml.Controls.Page
+    L"WarGames.MainPage", L"",
+    &ActivateType<::WarGames::MainPage>, nullptr, nullptr, nullptr,
+    5, // Windows.UI.Xaml.Controls.Page
     0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
     TypeInfo_Flags_IsLocalType | TypeInfo_Flags_None,
     //   4
+    L"WarGames.AboutPage", L"",
+    &ActivateType<::WarGames::AboutPage>, nullptr, nullptr, nullptr,
+    5, // Windows.UI.Xaml.Controls.Page
+    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
+    TypeInfo_Flags_IsLocalType | TypeInfo_Flags_None,
+    //   5
     L"Windows.UI.Xaml.Controls.Page", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1,
     0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
     TypeInfo_Flags_IsSystemType | TypeInfo_Flags_None,
-    //   5
+    //   6
     L"Windows.UI.Xaml.Controls.UserControl", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1,
@@ -135,27 +143,27 @@ const UINT TypeInfoLookup[] = {
       0,   //  14
       0,   //  15
       0,   //  16
-      0,   //  17
-      2,   //  18
-      3,   //  19
-      3,   //  20
-      3,   //  21
-      3,   //  22
-      3,   //  23
-      3,   //  24
-      3,   //  25
-      4,   //  26
-      4,   //  27
-      4,   //  28
-      4,   //  29
-      5,   //  30
-      5,   //  31
-      5,   //  32
-      5,   //  33
-      5,   //  34
-      5,   //  35
-      5,   //  36
-      6,   //  37
+      1,   //  17
+      4,   //  18
+      5,   //  19
+      5,   //  20
+      5,   //  21
+      5,   //  22
+      5,   //  23
+      5,   //  24
+      5,   //  25
+      5,   //  26
+      5,   //  27
+      5,   //  28
+      5,   //  29
+      6,   //  30
+      6,   //  31
+      6,   //  32
+      6,   //  33
+      6,   //  34
+      6,   //  35
+      6,   //  36
+      7,   //  37
 };
 
 const TypeInfo* GetTypeInfo(::Platform::String^ typeName)

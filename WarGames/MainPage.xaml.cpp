@@ -6,7 +6,8 @@
 #include "pch.h"
 #include "MainPage.xaml.h"
 #include "HomePage.xaml.h"
-#include "BattleSimulation.xaml.h"
+#include "NewPage.xaml.h"
+#include "LoadPage.xaml.h"
 #include "AboutPage.xaml.h"
 
 using namespace WarGames;
@@ -64,7 +65,10 @@ void WarGames::MainPage::nvTopLevelNav_ItemInvoked(Windows::UI::Xaml::Controls::
 		contentFrame->Navigate(TypeName(HomePage::typeid));
 	}
 	else if (test->Tag->ToString() == "Battle_Simulation") {
-		contentFrame->Navigate(TypeName(BattleSimulation::typeid));
+		contentFrame->Navigate(TypeName(NewPage::typeid));
+	}
+	else if (test->Tag->ToString() == "Load_Page") {
+		contentFrame->Navigate(TypeName(LoadPage::typeid));
 	}
 	else if (test->Tag->ToString() == "About_Page") {
 		contentFrame->Navigate(TypeName(AboutPage::typeid));

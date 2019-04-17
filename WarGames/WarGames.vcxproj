@@ -140,11 +140,14 @@
     <ClInclude Include="AboutPage.xaml.h">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </ClInclude>
-    <ClInclude Include="BattleSimulation.xaml.h">
-      <DependentUpon>BattleSimulation.xaml</DependentUpon>
+    <ClInclude Include="NewPage.xaml.h">
+      <DependentUpon>NewPage.xaml</DependentUpon>
     </ClInclude>
     <ClInclude Include="HomePage.xaml.h">
       <DependentUpon>HomePage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="LoadPage.xaml.h">
+      <DependentUpon>LoadPage.xaml</DependentUpon>
     </ClInclude>
     <ClInclude Include="pch.h" />
     <ClInclude Include="App.xaml.h">
@@ -161,10 +164,13 @@
     <Page Include="AboutPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="BattleSimulation.xaml">
+    <Page Include="NewPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Include="HomePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LoadPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MainPage.xaml">
@@ -193,11 +199,14 @@
     <ClCompile Include="App.xaml.cpp">
       <DependentUpon>App.xaml</DependentUpon>
     </ClCompile>
-    <ClCompile Include="BattleSimulation.xaml.cpp">
-      <DependentUpon>BattleSimulation.xaml</DependentUpon>
+    <ClCompile Include="NewPage.xaml.cpp">
+      <DependentUpon>NewPage.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="HomePage.xaml.cpp">
       <DependentUpon>HomePage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="LoadPage.xaml.cpp">
+      <DependentUpon>LoadPage.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="MainPage.xaml.cpp">
       <DependentUpon>MainPage.xaml</DependentUpon>

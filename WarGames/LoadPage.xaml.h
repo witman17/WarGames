@@ -1,11 +1,11 @@
 ﻿//
-// BattleSimulation.xaml.h
-// Deklaracja klasy BattleSimulation
+// LoadPage.xaml.h
+// Deklaracja klasy LoadPage
 //
 
 #pragma once
 
-#include "BattleSimulation.g.h"
+#include "LoadPage.g.h"
 
 namespace WarGames
 {
@@ -13,9 +13,9 @@ namespace WarGames
 	/// Pusta strona, która może być używana samodzielnie lub do której można nawigować wewnątrz ramki.
 	/// </summary>
 	[Windows::Foundation::Metadata::WebHostHidden]
-	public ref class BattleSimulation sealed
+	public ref class LoadPage sealed
 	{
 	public:
-		BattleSimulation();
+		LoadPage();
 	};
 }

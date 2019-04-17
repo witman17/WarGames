@@ -1,10 +1,10 @@
 ﻿//
-// BattleSimulation.xaml.cpp
-// Implementacja klasy BattleSimulation
+// LoadPage.xaml.cpp
+// Implementacja klasy LoadPage
 //
 
 #include "pch.h"
-#include "BattleSimulation.xaml.h"
+#include "LoadPage.xaml.h"
 
 using namespace WarGames;
 
@@ -21,7 +21,7 @@ using namespace Windows::UI::Xaml::Navigation;
 
 //Szablon elementu Pusta strona jest udokumentowany na stronie https://go.microsoft.com/fwlink/?LinkId=234238
 
-BattleSimulation::BattleSimulation()
+LoadPage::LoadPage()
 {
 	InitializeComponent();
 }
