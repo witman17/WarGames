@@ -8,7 +8,7 @@
     <AppContainerApplication>true</AppContainerApplication>
     <ApplicationType>Windows Store</ApplicationType>
     <WindowsTargetPlatformVersion Condition=" '$(WindowsTargetPlatformVersion)' == '' ">10.0.17134.0</WindowsTargetPlatformVersion>
-    <WindowsTargetPlatformMinVersion>10.0.10240.0</WindowsTargetPlatformMinVersion>
+    <WindowsTargetPlatformMinVersion>10.0.17134.0</WindowsTargetPlatformMinVersion>
     <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -137,6 +137,18 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AboutPage.xaml.h">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="NewPage.xaml.h">
+      <DependentUpon>NewPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="HomePage.xaml.h">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="LoadPage.xaml.h">
+      <DependentUpon>LoadPage.xaml</DependentUpon>
+    </ClInclude>
     <ClInclude Include="pch.h" />
     <ClInclude Include="App.xaml.h">
       <DependentUpon>App.xaml</DependentUpon>
@@ -149,6 +161,18 @@
     <ApplicationDefinition Include="App.xaml">
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AboutPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NewPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="HomePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LoadPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -170,9 +194,21 @@
     <Image Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\BattleSim\BattleSim.cpp" />
+    <ClCompile Include="AboutPage.xaml.cpp">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </ClCompile>
+	<ClCompile Include="..\BattleSim\BattleSim.cpp" />
     <ClCompile Include="App.xaml.cpp">
       <DependentUpon>App.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="NewPage.xaml.cpp">
+      <DependentUpon>NewPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="HomePage.xaml.cpp">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="LoadPage.xaml.cpp">
+      <DependentUpon>LoadPage.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="MainPage.xaml.cpp">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -195,10 +231,5 @@
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\Win2D.uwp.1.23.0\build\native\Win2D.uwp.targets" Condition="Exists('..\packages\Win2D.uwp.1.23.0\build\native\Win2D.uwp.targets')" />
   </ImportGroup>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>Ten projekt zawiera odwołania do pakietów NuGet, których nie ma na tym komputerze. Użyj przywracania pakietów NuGet, aby je pobrać. Aby uzyskać więcej informacji, zobacz http://go.microsoft.com/fwlink/?LinkID=322105. Brakujący plik: {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Win2D.uwp.1.23.0\build\native\Win2D.uwp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Win2D.uwp.1.23.0\build\native\Win2D.uwp.targets'))" />
-  </Target>
+
 </Project>

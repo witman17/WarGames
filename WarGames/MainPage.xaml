@@ -8,8 +8,31 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <Button Name="Test" Click="Test_Click" Content="Test" RenderTransformOrigin="14.152,0.594"/>
-
-    </Grid>
+    <NavigationView x:Name="nvTopLevelNav"
+                Loaded="nvTopLevelNav_Loaded"
+                Margin="0,12,0,0"
+                SelectionChanged="nvTopLevelNav_SelectionChanged"
+                ItemInvoked="nvTopLevelNav_ItemInvoked"
+                IsTabStop="False"
+                Header="GRY WOJENNE">
+        <NavigationView.MenuItems>
+            <NavigationViewItem Icon="Home">
+                <TextBlock Tag="Home_Page">Gry Wojenne</TextBlock>
+            </NavigationViewItem>
+            <NavigationViewItem Icon="Flag">
+                <TextBlock Tag="Battle_Simulation">Symulacja Bitwy</TextBlock>
+            </NavigationViewItem>
+            <NavigationViewItem>
+                <NavigationViewItem.Icon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xED25;"/>
+                </NavigationViewItem.Icon>
+                <TextBlock Tag="Load_Page">Wczytaj Symulację</TextBlock>
+            </NavigationViewItem>
+            <NavigationViewItem Icon="Help">
+                <TextBlock Tag="About_Page">O Aplikacji</TextBlock>
+            </NavigationViewItem>
+        </NavigationView.MenuItems>
+        <Frame x:Name="contentFrame"></Frame>
+    </NavigationView>
+    
 </Page>

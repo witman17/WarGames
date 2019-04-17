@@ -9,9 +9,17 @@
 #include "pch.h"
 #include "XamlTypeInfo.g.h"
 
+#include "AboutPage.xaml.h"
+#include "NewPage.xaml.h"
+#include "HomePage.xaml.h"
+#include "LoadPage.xaml.h"
 #include "App.xaml.h"
 #include "MainPage.xaml.h"
 #include "XamlBindingInfo.g.hpp"
+#include "AboutPage.g.hpp"
+#include "NewPage.g.hpp"
+#include "HomePage.g.hpp"
+#include "LoadPage.g.hpp"
 #include "App.g.hpp"
 #include "MainPage.g.hpp"
 
@@ -39,6 +47,16 @@ template<typename T>
     return ref new ::Platform::Box<T>((T)userType->CreateEnumUIntFromString(input));
 }
 
+enum TypeInfo_Flags
+{
+    TypeInfo_Flags_None                 = 0x00,
+    TypeInfo_Flags_IsLocalType          = 0x01,
+    TypeInfo_Flags_IsSystemType         = 0x02,
+    TypeInfo_Flags_IsReturnTypeStub     = 0x04,
+    TypeInfo_Flags_IsBindable           = 0x08,
+    TypeInfo_Flags_IsMarkupExtension    = 0x10, 
+};
+
 struct TypeInfo
 {
     PCWSTR  typeName;
@@ -50,42 +68,64 @@ struct TypeInfo
     int     baseTypeIndex;
     int     firstMemberIndex;
     int     firstEnumValueIndex;
+    int     createFromStringIndex;
     ::Windows::UI::Xaml::Interop::TypeKind kindofType;
-    bool    isLocalType;
-    bool    isSystemType;
-    bool    isReturnTypeStub;
-    bool    isBindable;
+    unsigned int flags;
 };
 
-TypeInfo TypeInfos[] = 
+const TypeInfo TypeInfos[] = 
 {
     //   0
+    L"WarGames.NewPage", L"",
+    &ActivateType<::WarGames::NewPage>, nullptr, nullptr, nullptr,
+    5, // Windows.UI.Xaml.Controls.Page
+    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
+    TypeInfo_Flags_IsLocalType | TypeInfo_Flags_None,
+    //   1
+    L"WarGames.HomePage", L"",
+    &ActivateType<::WarGames::HomePage>, nullptr, nullptr, nullptr,
+    5, // Windows.UI.Xaml.Controls.Page
+    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
+    TypeInfo_Flags_IsLocalType | TypeInfo_Flags_None,
+    //   2
+    L"WarGames.LoadPage", L"",
+    &ActivateType<::WarGames::LoadPage>, nullptr, nullptr, nullptr,
+    5, // Windows.UI.Xaml.Controls.Page
+    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
+    TypeInfo_Flags_IsLocalType | TypeInfo_Flags_None,
+    //   3
     L"WarGames.MainPage", L"",
     &ActivateType<::WarGames::MainPage>, nullptr, nullptr, nullptr,
-    1, // Windows.UI.Xaml.Controls.Page
-    0, 0, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
-    true,  false, false, false,
-    //   1
+    5, // Windows.UI.Xaml.Controls.Page
+    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
+    TypeInfo_Flags_IsLocalType | TypeInfo_Flags_None,
+    //   4
+    L"WarGames.AboutPage", L"",
+    &ActivateType<::WarGames::AboutPage>, nullptr, nullptr, nullptr,
+    5, // Windows.UI.Xaml.Controls.Page
+    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
+    TypeInfo_Flags_IsLocalType | TypeInfo_Flags_None,
+    //   5
     L"Windows.UI.Xaml.Controls.Page", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1,
-    0, 0, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
-    false, true,  false, false,
-    //   2
+    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
+    TypeInfo_Flags_IsSystemType | TypeInfo_Flags_None,
+    //   6
     L"Windows.UI.Xaml.Controls.UserControl", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1,
-    0, 0, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
-    false, true,  false, false,
+    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
+    TypeInfo_Flags_IsSystemType | TypeInfo_Flags_None,
     //  Last type here is for padding
     L"", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1, 
-    0, 0,::Windows::UI::Xaml::Interop::TypeKind::Custom,
-    false, false, false, false,
+    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
+    TypeInfo_Flags_None,
 };
 
-UINT TypeInfoLookup[] = { 
+const UINT TypeInfoLookup[] = { 
       0,   //   0
       0,   //   1
       0,   //   2
@@ -103,32 +143,32 @@ UINT TypeInfoLookup[] = {
       0,   //  14
       0,   //  15
       0,   //  16
-      0,   //  17
-      1,   //  18
-      1,   //  19
-      1,   //  20
-      1,   //  21
-      1,   //  22
-      1,   //  23
-      1,   //  24
-      1,   //  25
-      1,   //  26
-      1,   //  27
-      1,   //  28
-      1,   //  29
-      2,   //  30
-      2,   //  31
-      2,   //  32
-      2,   //  33
-      2,   //  34
-      2,   //  35
-      2,   //  36
-      3,   //  37
+      1,   //  17
+      4,   //  18
+      5,   //  19
+      5,   //  20
+      5,   //  21
+      5,   //  22
+      5,   //  23
+      5,   //  24
+      5,   //  25
+      5,   //  26
+      5,   //  27
+      5,   //  28
+      5,   //  29
+      6,   //  30
+      6,   //  31
+      6,   //  32
+      6,   //  33
+      6,   //  34
+      6,   //  35
+      6,   //  36
+      7,   //  37
 };
 
-TypeInfo* GetTypeInfo(::Platform::String^ typeName)
+const TypeInfo* GetTypeInfo(::Platform::String^ typeName)
 {
-    int typeNameLength = typeName->Length();
+    auto typeNameLength = typeName->Length();
     if (typeNameLength < _countof(TypeInfoLookup) - 1)
     {
         for (UINT i = TypeInfoLookup[typeNameLength]; i < TypeInfoLookup[typeNameLength+1]; i++)
@@ -154,13 +194,13 @@ TypeInfo* GetTypeInfo(::Platform::String^ typeName)
 
 ::Windows::UI::Xaml::Markup::IXamlType^ ::XamlTypeInfo::InfoProvider::XamlTypeInfoProvider::CreateXamlType(::Platform::String^ typeName)
 {
-    TypeInfo* pTypeInfo = GetTypeInfo(typeName);
-    TypeInfo* pNextTypeInfo = pTypeInfo + 1;
+    const TypeInfo* pTypeInfo = GetTypeInfo(typeName);
+    const TypeInfo* pNextTypeInfo = pTypeInfo + 1;
     if (pTypeInfo == nullptr || pNextTypeInfo == nullptr)
     {
         return nullptr;
     }
-    else if (pTypeInfo->isSystemType)
+    else if (pTypeInfo->flags & TypeInfo_Flags_IsSystemType)
     {
         return ref new ::XamlTypeInfo::InfoProvider::XamlSystemBaseType(typeName);
     }
@@ -176,9 +216,11 @@ TypeInfo* GetTypeInfo(::Platform::String^ typeName)
         userType->DictionaryAdd = pTypeInfo->dictionaryAdd;
         userType->FromStringConverter = pTypeInfo->fromStringConverter;
         userType->ContentPropertyName = ::Platform::StringReference(pTypeInfo->contentPropertyName);
-        userType->IsLocalType = pTypeInfo->isLocalType;
-        userType->IsReturnTypeStub = pTypeInfo->isReturnTypeStub;
-        userType->IsBindable = pTypeInfo->isBindable;
+        userType->IsLocalType = pTypeInfo->flags & TypeInfo_Flags_IsLocalType;
+        userType->IsReturnTypeStub = pTypeInfo->flags & TypeInfo_Flags_IsReturnTypeStub;
+        userType->IsBindable = pTypeInfo->flags & TypeInfo_Flags_IsBindable;
+        userType->IsMarkupExtension = pTypeInfo->flags & TypeInfo_Flags_IsMarkupExtension;
+        userType->CreateFromStringMethod = nullptr;
         return userType;
     }
 }

@@ -13,6 +13,10 @@
 extern "C" __declspec(dllimport) int __stdcall IsDebuggerPresent();
 #endif
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> MainMenu
 #if (defined(_M_IX86) || defined(_M_AMD64)) && !defined(_VSDESIGNER_DONT_LOAD_AS_DLL)
 #if defined(_M_IX86)
 #pragma comment(linker, "/EXPORT:DllGetActivationFactory=_DllGetActivationFactory@8,PRIVATE")
@@ -57,6 +61,7 @@ void ::WarGames::App::InitializeComponent()
 #endif
 }
 
+<<<<<<< HEAD
 
 ::Windows::UI::Xaml::Markup::IXamlType^ ::WarGames::App::GetXamlType(::Windows::UI::Xaml::Interop::TypeName type)
 {
@@ -65,15 +70,24 @@ void ::WarGames::App::InitializeComponent()
         _provider = ref new XamlTypeInfo::InfoProvider::XamlTypeInfoProvider();
     }
     return _provider->GetXamlTypeByType(type);
+=======
+::Windows::UI::Xaml::Markup::IXamlType^ ::WarGames::App::GetXamlType(::Windows::UI::Xaml::Interop::TypeName type)
+{
+    return _AppProvider->GetXamlTypeByType(type);
+>>>>>>> MainMenu
 }
 
 ::Windows::UI::Xaml::Markup::IXamlType^ ::WarGames::App::GetXamlType(::Platform::String^ fullName)
 {
+<<<<<<< HEAD
     if(_provider == nullptr)
     {
         _provider = ref new XamlTypeInfo::InfoProvider::XamlTypeInfoProvider();
     }
     return _provider->GetXamlTypeByName(fullName);
+=======
+    return _AppProvider->GetXamlTypeByName(fullName);
+>>>>>>> MainMenu
 }
 
 ::Platform::Array<::Windows::UI::Xaml::Markup::XmlnsDefinition>^ ::WarGames::App::GetXmlnsDefinitions()
@@ -81,6 +95,18 @@ void ::WarGames::App::InitializeComponent()
     return ref new ::Platform::Array<::Windows::UI::Xaml::Markup::XmlnsDefinition>(0);
 }
 
+<<<<<<< HEAD
+=======
+::XamlTypeInfo::InfoProvider::XamlTypeInfoProvider^ ::WarGames::App::_AppProvider::get()
+{
+    if (__provider == nullptr)
+    {
+        __provider = ref new ::XamlTypeInfo::InfoProvider::XamlTypeInfoProvider();
+    }
+    return __provider;
+}
+
+>>>>>>> MainMenu
 #ifndef DISABLE_XAML_GENERATED_MAIN
 int __cdecl main(::Platform::Array<::Platform::String^>^ args)
 {
