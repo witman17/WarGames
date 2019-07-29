@@ -21,7 +21,8 @@
         <TextBox Text="Armia I" BorderThickness="0" MaxLength="20" FontSize="60" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBox Text="Armia II" Grid.Column="1" BorderThickness="0" MaxLength="20" FontSize="60" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <StackPanel Grid.Column="0" Grid.Row="2" Background="Lavender">
-            <TextBlock Text="testets"/>
+            <TextBlock HorizontalAlignment="Center" Text="testets"/>
+            <Button Content="+" Click="Button_Add_Unit" HorizontalAlignment="Center" ></Button>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="2" Background="Lavender">
             <TextBlock Text="testets"/>

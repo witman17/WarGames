@@ -28,8 +28,16 @@ void ::WarGames::NewPage::InitializeComponent()
 
 void ::WarGames::NewPage::Connect(int __connectionId, ::Platform::Object^ __target)
 {
-    __connectionId;         // unreferenced 
-    __target;               // unreferenced
+    switch (__connectionId)
+    {
+    case 2:
+        {
+            ::Windows::UI::Xaml::Controls::Button^ element2 = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
+            (safe_cast<::Windows::UI::Xaml::Controls::Button^>(element2))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::WarGames::NewPage::*)
+                (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&NewPage::AddUnit);
+        }
+        break;
+    }
     _contentLoaded = true;
 }
 

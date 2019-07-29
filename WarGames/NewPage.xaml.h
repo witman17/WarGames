@@ -17,5 +17,8 @@ namespace WarGames
 	{
 	public:
 		NewPage();
+	private:
+		void Button_Add_Unit(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void Button_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 	};
 }

@@ -25,3 +25,15 @@ NewPage::NewPage()
 {
 	InitializeComponent();
 }
+
+
+void WarGames::NewPage::Button_Add_Unit(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+
+}
+
+
+void WarGames::NewPage::Button_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+
+}
