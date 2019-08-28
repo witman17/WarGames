@@ -1,57 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup>
-    <Filter Include="Common">
-      <UniqueIdentifier>9b2279a1-4355-4862-9e10-732053bea307</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Assets">
-      <UniqueIdentifier>053a6833-1114-42e0-8b9b-2e9f2da0554d</UniqueIdentifier>
-      <Extensions>bmp;fbx;gif;jpg;jpeg;tga;tiff;tif;png</Extensions>
-    </Filter>
-    <Filter Include="Views">
-      <UniqueIdentifier>{e52e952b-69c7-4673-948d-59e902ad021a}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="App.xaml.cpp" />
-    <ClCompile Include="MainPage.xaml.cpp" />
+    <Page Include="MainPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="App.idl" />
+    <Midl Include="MainPage.idl" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="pch.cpp" />
-    <ClCompile Include="HomePage.xaml.cpp" />
-    <ClCompile Include="AboutPage.xaml.cpp" />
-    <ClCompile Include="NewPage.xaml.cpp" />
+    <ClCompile Include="App.cpp" />
+    <ClCompile Include="MainPage.cpp" />
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
-    <ClInclude Include="App.xaml.h" />
-    <ClInclude Include="MainPage.xaml.h" />
-    <ClInclude Include="HomePage.xaml.h" />
-    <ClInclude Include="AboutPage.xaml.h" />
-    <ClInclude Include="NewPage.xaml.h" />
-	<ClCompile Include="..\BattleSim\BattleSim.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assets\LockScreenLogo.scale-200.png">
-      <Filter>Assets</Filter>
-    </Image>
-    <Image Include="Assets\SplashScreen.scale-200.png">
-      <Filter>Assets</Filter>
-    </Image>
-    <Image Include="Assets\Square150x150Logo.scale-200.png">
-      <Filter>Assets</Filter>
-    </Image>
-    <Image Include="Assets\Square44x44Logo.scale-200.png">
-      <Filter>Assets</Filter>
-    </Image>
-    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <Image Include="Assets\Wide310x150Logo.scale-200.png">
       <Filter>Assets</Filter>
     </Image>
     <Image Include="Assets\StoreLogo.png">
       <Filter>Assets</Filter>
     </Image>
-    <Image Include="Assets\Wide310x150Logo.scale-200.png">
+    <Image Include="Assets\Square150x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\LockScreenLogo.scale-200.png">
       <Filter>Assets</Filter>
     </Image>
   </ItemGroup>
@@ -59,13 +46,15 @@
     <AppxManifest Include="Package.appxmanifest" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="WarGames_TemporaryKey.pfx" />
+    <Filter Include="Assets">
+      <UniqueIdentifier>{e48dc53e-40b1-40cb-970a-f89935452892}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="MainPage.xaml" />
-    <Page Include="HomePage.xaml" />
-    <Page Include="AboutPage.xaml" />
-    <Page Include="LoadPage.xaml" />
-    <Page Include="NewPage.xaml" />
+    <None Include="PropertySheet.props" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.txt" />
   </ItemGroup>
 </Project>
