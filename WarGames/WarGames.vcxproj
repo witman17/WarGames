@@ -149,6 +149,11 @@
       <DeploymentContent>false</DeploymentContent>
     </Text>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BattleSim\BattleSim.vcxproj">
+      <Project>{49944c55-d88c-48eb-a4a1-d8ac570e6928}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\Microsoft.Windows.CppWinRT.2.0.190730.2\build\native\Microsoft.Windows.CppWinRT.targets" Condition="Exists('..\packages\Microsoft.Windows.CppWinRT.2.0.190730.2\build\native\Microsoft.Windows.CppWinRT.targets')" />

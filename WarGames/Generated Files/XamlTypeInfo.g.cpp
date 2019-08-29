@@ -7,44 +7,71 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 #include "pch.h"
-#include "XamlTypeInfo.g.h"
+#include <memory>
 
-#include "AboutPage.xaml.h"
-#include "NewPage.xaml.h"
-#include "HomePage.xaml.h"
-#include "LoadPage.xaml.h"
-#include "App.xaml.h"
-#include "MainPage.xaml.h"
-#include "XamlBindingInfo.g.hpp"
-#include "AboutPage.g.hpp"
-#include "NewPage.g.hpp"
-#include "HomePage.g.hpp"
-#include "LoadPage.g.hpp"
-#include "App.g.hpp"
-#include "MainPage.g.hpp"
+#include "XamlTypeInfo.xaml.g.h"
 
-template<typename T>
-::Platform::Object^ ActivateType()
+#include "App.h"
+#include "MainPage.h"
+#include "XamlBindingInfo.xaml.g.hpp"
+#include "App.xaml.g.hpp"
+#include "MainPage.xaml.g.hpp"
+
+namespace winrt::WarGames::implementation
 {
-    return ref new T;
+using IXamlMember = ::winrt::Windows::UI::Xaml::Markup::IXamlMember;
+using IXamlType = ::winrt::Windows::UI::Xaml::Markup::IXamlType;
+using TypeKind = ::winrt::Windows::UI::Xaml::Interop::TypeKind;
+
+template <typename T>
+::winrt::Windows::Foundation::IInspectable ActivateType()
+{
+    return T();
+}
+
+template <typename T>
+::winrt::Windows::Foundation::IInspectable ActivateLocalType()
+{
+    return ::winrt::make<T>();
 }
 
 template<typename TInstance, typename TItem>
-void CollectionAdd(::Platform::Object^ instance, ::Platform::Object^ item)
+void CollectionAdd(
+    ::winrt::Windows::Foundation::IInspectable const& instance, 
+    ::winrt::Windows::Foundation::IInspectable const& item)
 {
-    safe_cast<TInstance^>(instance)->Append((TItem)item);
+    instance.as<TInstance>().Append(::winrt::unbox_value<TItem>(item));
 }
 
 template<typename TInstance, typename TKey, typename TItem>
-void DictionaryAdd(::Platform::Object^ instance, ::Platform::Object^ key, ::Platform::Object^ item)
+void DictionaryAdd(
+    ::winrt::Windows::Foundation::IInspectable const& instance,
+    ::winrt::Windows::Foundation::IInspectable const& key,
+    ::winrt::Windows::Foundation::IInspectable const& item)
 {
-    safe_cast<TInstance^>(instance)->Insert((TKey)key, (TItem)item);
+    instance.as<TInstance>().Insert(::winrt::unbox_value<TKey>(key), ::winrt::unbox_value<TItem>(item));
 }
 
 template<typename T>
-::Platform::Object^ FromStringConverter(::XamlTypeInfo::InfoProvider::XamlUserType^ userType, ::Platform::String^ input)
+::winrt::Windows::Foundation::IInspectable FromStringConverter(
+    XamlUserType const& userType, 
+    ::winrt::hstring const& input)
 {
-    return ref new ::Platform::Box<T>((T)userType->CreateEnumUIntFromString(input));
+    return ::winrt::box_value(static_cast<T>(userType.CreateEnumUIntFromString(input)));
+}
+
+template<typename TDeclaringType, typename TValue>
+::winrt::Windows::Foundation::IInspectable GetValueTypeMember_MyProperty(::winrt::Windows::Foundation::IInspectable const& instance)
+{
+    return ::winrt::box_value<TValue>(instance.as<TDeclaringType>().MyProperty());
+}
+
+template<typename TDeclaringType, typename TValue>
+void SetValueTypeMember_MyProperty(
+    ::winrt::Windows::Foundation::IInspectable const& instance, 
+    ::winrt::Windows::Foundation::IInspectable const& value)
+{
+    instance.as<TDeclaringType>().MyProperty(::winrt::unbox_value<TValue>(value));
 }
 
 enum TypeInfo_Flags
@@ -59,177 +86,227 @@ enum TypeInfo_Flags
 
 struct TypeInfo
 {
-    PCWSTR  typeName;
-    PCWSTR contentPropertyName;
-    ::Platform::Object^ (*activator)();
-    void (*collectionAdd)(::Platform::Object^, ::Platform::Object^);
-    void (*dictionaryAdd)(::Platform::Object^, ::Platform::Object^, ::Platform::Object^);
-    ::Platform::Object^ (*fromStringConverter)(::XamlTypeInfo::InfoProvider::XamlUserType^, ::Platform::String^);
+    const wchar_t* typeName{nullptr};
+    const wchar_t* contentPropertyName{nullptr};
+    ::winrt::Windows::Foundation::IInspectable (*activator)();
+    void (*collectionAdd)(::winrt::Windows::Foundation::IInspectable const&, ::winrt::Windows::Foundation::IInspectable const&);
+    void (*dictionaryAdd)(::winrt::Windows::Foundation::IInspectable const&, ::winrt::Windows::Foundation::IInspectable const&, ::winrt::Windows::Foundation::IInspectable const&);
+    ::winrt::Windows::Foundation::IInspectable (*fromStringConverter)(XamlUserType const&, ::winrt::hstring const& );
     int     baseTypeIndex;
     int     firstMemberIndex;
     int     firstEnumValueIndex;
     int     createFromStringIndex;
-    ::Windows::UI::Xaml::Interop::TypeKind kindofType;
+    TypeKind kindOfType;
     unsigned int flags;
 };
+
 
 const TypeInfo TypeInfos[] = 
 {
     //   0
-    L"WarGames.NewPage", L"",
-    &ActivateType<::WarGames::NewPage>, nullptr, nullptr, nullptr,
-    5, // Windows.UI.Xaml.Controls.Page
-    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
-    TypeInfo_Flags_IsLocalType | TypeInfo_Flags_None,
+    L"Int32", L"",
+    nullptr, nullptr, nullptr, nullptr,
+    -1,
+    0, 0, -1, TypeKind::Metadata,
+    TypeInfo_Flags_IsSystemType | TypeInfo_Flags_None,
     //   1
-    L"WarGames.HomePage", L"",
-    &ActivateType<::WarGames::HomePage>, nullptr, nullptr, nullptr,
-    5, // Windows.UI.Xaml.Controls.Page
-    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
+    L"WarGames.MainPage", L"",
+    &ActivateLocalType<::winrt::WarGames::implementation::MainPage>, nullptr, nullptr, nullptr,
+    2, // Windows.UI.Xaml.Controls.Page
+    0, 0, -1, TypeKind::Custom,
     TypeInfo_Flags_IsLocalType | TypeInfo_Flags_None,
     //   2
-    L"WarGames.LoadPage", L"",
-    &ActivateType<::WarGames::LoadPage>, nullptr, nullptr, nullptr,
-    5, // Windows.UI.Xaml.Controls.Page
-    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
-    TypeInfo_Flags_IsLocalType | TypeInfo_Flags_None,
-    //   3
-    L"WarGames.MainPage", L"",
-    &ActivateType<::WarGames::MainPage>, nullptr, nullptr, nullptr,
-    5, // Windows.UI.Xaml.Controls.Page
-    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
-    TypeInfo_Flags_IsLocalType | TypeInfo_Flags_None,
-    //   4
-    L"WarGames.AboutPage", L"",
-    &ActivateType<::WarGames::AboutPage>, nullptr, nullptr, nullptr,
-    5, // Windows.UI.Xaml.Controls.Page
-    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
-    TypeInfo_Flags_IsLocalType | TypeInfo_Flags_None,
-    //   5
     L"Windows.UI.Xaml.Controls.Page", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1,
-    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
+    1, 0, -1, TypeKind::Metadata,
     TypeInfo_Flags_IsSystemType | TypeInfo_Flags_None,
-    //   6
+    //   3
     L"Windows.UI.Xaml.Controls.UserControl", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1,
-    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Metadata,
+    1, 0, -1, TypeKind::Metadata,
     TypeInfo_Flags_IsSystemType | TypeInfo_Flags_None,
     //  Last type here is for padding
     L"", L"",
     nullptr, nullptr, nullptr, nullptr,
     -1, 
-    0, 0, -1, ::Windows::UI::Xaml::Interop::TypeKind::Custom,
+    1, 0, -1, TypeKind::Custom,
     TypeInfo_Flags_None,
 };
 
-const UINT TypeInfoLookup[] = { 
+constexpr uint32_t TypeInfoLookup[] = { 
       0,   //   0
       0,   //   1
       0,   //   2
       0,   //   3
       0,   //   4
       0,   //   5
-      0,   //   6
-      0,   //   7
-      0,   //   8
-      0,   //   9
-      0,   //  10
-      0,   //  11
-      0,   //  12
-      0,   //  13
-      0,   //  14
-      0,   //  15
-      0,   //  16
+      1,   //   6
+      1,   //   7
+      1,   //   8
+      1,   //   9
+      1,   //  10
+      1,   //  11
+      1,   //  12
+      1,   //  13
+      1,   //  14
+      1,   //  15
+      1,   //  16
       1,   //  17
-      4,   //  18
-      5,   //  19
-      5,   //  20
-      5,   //  21
-      5,   //  22
-      5,   //  23
-      5,   //  24
-      5,   //  25
-      5,   //  26
-      5,   //  27
-      5,   //  28
-      5,   //  29
-      6,   //  30
-      6,   //  31
-      6,   //  32
-      6,   //  33
-      6,   //  34
-      6,   //  35
-      6,   //  36
-      7,   //  37
+      2,   //  18
+      2,   //  19
+      2,   //  20
+      2,   //  21
+      2,   //  22
+      2,   //  23
+      2,   //  24
+      2,   //  25
+      2,   //  26
+      2,   //  27
+      2,   //  28
+      2,   //  29
+      3,   //  30
+      3,   //  31
+      3,   //  32
+      3,   //  33
+      3,   //  34
+      3,   //  35
+      3,   //  36
+      4,   //  37
 };
 
-const TypeInfo* GetTypeInfo(::Platform::String^ typeName)
+struct MemberInfo 
 {
-    auto typeNameLength = typeName->Length();
+    const wchar_t* shortName{nullptr};
+    ::winrt::Windows::Foundation::IInspectable (*getter)(::winrt::Windows::Foundation::IInspectable const&);
+    void (*setter)(::winrt::Windows::Foundation::IInspectable const&, ::winrt::Windows::Foundation::IInspectable const&);
+    int typeIndex;
+    int targetTypeIndex;
+    bool isReadOnly;
+    bool isDependencyProperty;
+    bool isAttachable;
+};
+
+const MemberInfo MemberInfos[] = 
+{
+    //   0 - WarGames.MainPage.MyProperty
+    L"MyProperty",
+    &GetValueTypeMember_MyProperty<::winrt::WarGames::MainPage, int32_t>,
+    &SetValueTypeMember_MyProperty<::winrt::WarGames::MainPage, int32_t>,
+    0, // Int32
+    -1,
+    false, false, false,
+};
+
+const wchar_t* GetShortName(const wchar_t* longName)
+{
+    const auto separator = wcsrchr(longName, '.');
+    return separator ? separator + 1: longName;
+}
+
+const TypeInfo* GetTypeInfo(::winrt::hstring const& typeName)
+{
+    size_t typeNameLength = typeName.size();
     if (typeNameLength < _countof(TypeInfoLookup) - 1)
     {
-        for (UINT i = TypeInfoLookup[typeNameLength]; i < TypeInfoLookup[typeNameLength+1]; i++)
+        const auto begin = TypeInfos + TypeInfoLookup[typeNameLength];
+        const auto end = TypeInfos + TypeInfoLookup[typeNameLength + 1];
+        auto pos = std::find_if(begin, end, [&typeName](TypeInfo const& elem)
         {
-            if (typeName == ::Platform::StringReference(TypeInfos[i].typeName))
+            return wcscmp(typeName.data(), elem.typeName) == 0;
+        });
+        if (pos != end)
+        {
+            return pos;
+        }
+    }
+    return nullptr;
+}
+
+const MemberInfo* GetMemberInfo(::winrt::hstring const& longMemberName)
+{
+    const auto dotPosition = std::find(longMemberName.crbegin(), longMemberName.crend(), L'.').base();
+    if (dotPosition != longMemberName.end())
+    {
+        const auto sizeBeforeDot = static_cast<::winrt::hstring::size_type>(dotPosition - longMemberName.begin()) - 1;
+        const TypeInfo* pTypeInfo = GetTypeInfo(::winrt::hstring{longMemberName.data(), sizeBeforeDot});
+        if (pTypeInfo)
+        {
+            const TypeInfo* pNextTypeInfo = pTypeInfo + 1;
+            const auto shortMemberName = GetShortName(longMemberName.data());
+            const auto begin = MemberInfos + pTypeInfo->firstMemberIndex;
+            const auto end = MemberInfos + pNextTypeInfo->firstMemberIndex;
+            auto info = std::find_if(begin, end,
+                [shortMemberName](const MemberInfo& elem)
             {
-                return &TypeInfos[i];
+                return wcscmp(shortMemberName, elem.shortName) == 0;
+            });
+            if (info != end)
+            {
+                return info;
             }
         }
     }
     return nullptr;
 }
 
-::Platform::Collections::Vector<::Windows::UI::Xaml::Markup::IXamlMetadataProvider^>^ ::XamlTypeInfo::InfoProvider::XamlTypeInfoProvider::OtherProviders::get()
+std::vector<::winrt::Windows::UI::Xaml::Markup::IXamlMetadataProvider> const& XamlTypeInfoProvider::OtherProviders()
 {
-    if(_otherProviders == nullptr)
-    {
-        auto otherProviders = ref new ::Platform::Collections::Vector<::Windows::UI::Xaml::Markup::IXamlMetadataProvider^>();
-        _otherProviders = otherProviders;
-    }
     return _otherProviders;
 }
 
-::Windows::UI::Xaml::Markup::IXamlType^ ::XamlTypeInfo::InfoProvider::XamlTypeInfoProvider::CreateXamlType(::Platform::String^ typeName)
+IXamlType XamlTypeInfoProvider::CreateXamlType(::winrt::hstring const& typeName)
 {
     const TypeInfo* pTypeInfo = GetTypeInfo(typeName);
     const TypeInfo* pNextTypeInfo = pTypeInfo + 1;
-    if (pTypeInfo == nullptr || pNextTypeInfo == nullptr)
+    if (!pTypeInfo || !pNextTypeInfo)
     {
         return nullptr;
     }
     else if (pTypeInfo->flags & TypeInfo_Flags_IsSystemType)
     {
-        return ref new ::XamlTypeInfo::InfoProvider::XamlSystemBaseType(typeName);
+        return ::winrt::make<XamlSystemBaseType>(typeName);
     }
     else
     {
-        ::XamlTypeInfo::InfoProvider::XamlUserType^ userType = ref new ::XamlTypeInfo::InfoProvider::XamlUserType(
-            this, 
-            ::Platform::StringReference(pTypeInfo->typeName), 
-            this->GetXamlTypeByName(::Platform::StringReference(pTypeInfo->baseTypeIndex >= 0 ? TypeInfos[pTypeInfo->baseTypeIndex].typeName : L"")));
-        userType->KindOfType = pTypeInfo->kindofType;
-        userType->Activator = pTypeInfo->activator;
-        userType->CollectionAdd = pTypeInfo->collectionAdd;
-        userType->DictionaryAdd = pTypeInfo->dictionaryAdd;
-        userType->FromStringConverter = pTypeInfo->fromStringConverter;
-        userType->ContentPropertyName = ::Platform::StringReference(pTypeInfo->contentPropertyName);
-        userType->IsLocalType = pTypeInfo->flags & TypeInfo_Flags_IsLocalType;
-        userType->IsReturnTypeStub = pTypeInfo->flags & TypeInfo_Flags_IsReturnTypeStub;
-        userType->IsBindable = pTypeInfo->flags & TypeInfo_Flags_IsBindable;
-        userType->IsMarkupExtension = pTypeInfo->flags & TypeInfo_Flags_IsMarkupExtension;
-        userType->CreateFromStringMethod = nullptr;
-        return userType;
+        ::winrt::hstring baseName { pTypeInfo->baseTypeIndex >= 0 ? TypeInfos[pTypeInfo->baseTypeIndex].typeName : L""};
+        auto userType = ::winrt::make_self<XamlUserType>(shared_from_this(), pTypeInfo->typeName, GetXamlTypeByName(baseName));
+        userType->_kindOfType = pTypeInfo->kindOfType;
+        userType->_activator = pTypeInfo->activator;
+        userType->_collectionAdd = pTypeInfo->collectionAdd;
+        userType->_dictionaryAdd = pTypeInfo->dictionaryAdd;
+        userType->_fromStringConverter = pTypeInfo->fromStringConverter;
+        userType->ContentPropertyName(pTypeInfo->contentPropertyName);
+        userType->IsLocalType(pTypeInfo->flags & TypeInfo_Flags_IsLocalType);
+        userType->IsReturnTypeStub(pTypeInfo->flags & TypeInfo_Flags_IsReturnTypeStub);
+        userType->IsBindable(pTypeInfo->flags & TypeInfo_Flags_IsBindable);
+        userType->IsMarkupExtension(pTypeInfo->flags & TypeInfo_Flags_IsMarkupExtension);
+        userType->_createFromStringMethod = nullptr;
+        for (int i = pTypeInfo->firstMemberIndex; i < pNextTypeInfo->firstMemberIndex; ++i)
+        {
+            userType->AddMemberName(MemberInfos[i].shortName);
+        }
+        return userType.as<IXamlType>();
     }
 }
 
-::Windows::UI::Xaml::Markup::IXamlMember^ ::XamlTypeInfo::InfoProvider::XamlTypeInfoProvider::CreateXamlMember(::Platform::String^ longMemberName)
+IXamlMember XamlTypeInfoProvider::CreateXamlMember(::winrt::hstring const& longMemberName)
 {
-    ::XamlTypeInfo::InfoProvider::XamlMember^ xamlMember = nullptr;
-    // No Local Properties
-    (void)longMemberName; // Unused parameter
-    return xamlMember;
-}
+    const MemberInfo* pMemberInfo = GetMemberInfo(longMemberName);
+    if (!pMemberInfo)
+    {
+        return nullptr;
+    }
+    auto xamlMember = ::winrt::make_self<XamlMember>(shared_from_this(),
+        pMemberInfo->shortName, TypeInfos[pMemberInfo->typeIndex].typeName);
+    xamlMember->_getter = pMemberInfo->getter;
+    xamlMember->_setter = pMemberInfo->setter;
+    xamlMember->TargetTypeName(pMemberInfo->targetTypeIndex >= 0 ? TypeInfos[pMemberInfo->targetTypeIndex].typeName : L"");
+    xamlMember->IsReadOnly(pMemberInfo->isReadOnly);
+    xamlMember->IsDependencyProperty(pMemberInfo->isDependencyProperty);
+    xamlMember->IsAttachable(pMemberInfo->isAttachable);
 
+    return xamlMember.as<IXamlMember>();
+}
+} // namespace

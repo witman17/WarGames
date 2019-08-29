@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WarGames", "WarGames\WarGames.vcxproj", "{79B94C3C-1D76-4276-8148-970D17C6F7D4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BattleSim", "BattleSim\BattleSim.vcxproj", "{49944C55-D88C-48EB-A4A1-D8AC570E6928}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -33,6 +35,18 @@ Global
 		{79B94C3C-1D76-4276-8148-970D17C6F7D4}.Release|x86.ActiveCfg = Release|Win32
 		{79B94C3C-1D76-4276-8148-970D17C6F7D4}.Release|x86.Build.0 = Release|Win32
 		{79B94C3C-1D76-4276-8148-970D17C6F7D4}.Release|x86.Deploy.0 = Release|Win32
+		{49944C55-D88C-48EB-A4A1-D8AC570E6928}.Debug|ARM.ActiveCfg = Debug|ARM
+		{49944C55-D88C-48EB-A4A1-D8AC570E6928}.Debug|ARM.Build.0 = Debug|ARM
+		{49944C55-D88C-48EB-A4A1-D8AC570E6928}.Debug|x64.ActiveCfg = Debug|x64
+		{49944C55-D88C-48EB-A4A1-D8AC570E6928}.Debug|x64.Build.0 = Debug|x64
+		{49944C55-D88C-48EB-A4A1-D8AC570E6928}.Debug|x86.ActiveCfg = Debug|Win32
+		{49944C55-D88C-48EB-A4A1-D8AC570E6928}.Debug|x86.Build.0 = Debug|Win32
+		{49944C55-D88C-48EB-A4A1-D8AC570E6928}.Release|ARM.ActiveCfg = Release|ARM
+		{49944C55-D88C-48EB-A4A1-D8AC570E6928}.Release|ARM.Build.0 = Release|ARM
+		{49944C55-D88C-48EB-A4A1-D8AC570E6928}.Release|x64.ActiveCfg = Release|x64
+		{49944C55-D88C-48EB-A4A1-D8AC570E6928}.Release|x64.Build.0 = Release|x64
+		{49944C55-D88C-48EB-A4A1-D8AC570E6928}.Release|x86.ActiveCfg = Release|Win32
+		{49944C55-D88C-48EB-A4A1-D8AC570E6928}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
