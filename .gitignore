@@ -261,3 +261,6 @@ __pycache__/
 *.pyc
 *.cd
 Documentation/
+
+BattleSim/Generated Files/
+WarGames/Generated Files/
