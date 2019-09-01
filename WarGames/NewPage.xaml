@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="WarGames.MainPage"
+    x:Class="WarGames.NewPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:WarGames"
@@ -8,7 +8,6 @@
     mc:Ignorable="d">
 
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:ConnectionId='2' x:Name="myButton"                     >Click Me</Button>
+        <Button x:Name="Button" Click="ClickHandler">TODO: New Page</Button>
     </StackPanel>
 </Page>
-

@@ -4,9 +4,6 @@
     <ApplicationDefinition Include="App.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="MainPage.xaml" />
-  </ItemGroup>
-  <ItemGroup>
     <Midl Include="App.idl" />
     <Midl Include="MainPage.idl" />
   </ItemGroup>
@@ -49,6 +46,9 @@
     <Filter Include="Assets">
       <UniqueIdentifier>{e48dc53e-40b1-40cb-970a-f89935452892}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pages">
+      <UniqueIdentifier>{f9cf2e48-96bb-402c-b9e9-aa589a37c5bf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="PropertySheet.props" />
@@ -56,5 +56,22 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainPage.xaml">
+      <Filter>Pages</Filter>
+    </Page>
+    <Page Include="AboutPage.xaml">
+      <Filter>Pages</Filter>
+    </Page>
+    <Page Include="NewPage.xaml">
+      <Filter>Pages</Filter>
+    </Page>
+    <Page Include="LoadPage.xaml">
+      <Filter>Pages</Filter>
+    </Page>
+    <Page Include="StatsPage.xaml">
+      <Filter>Pages</Filter>
+    </Page>
   </ItemGroup>
 </Project>

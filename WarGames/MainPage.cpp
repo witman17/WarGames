@@ -2,6 +2,12 @@
 #include "MainPage.h"
 #include "MainPage.g.cpp"
 
+#include "AboutPage.h"
+#include "LoadPage.h"
+#include "NewPage.h"
+#include "StatsPage.h"
+
+
 using namespace winrt;
 using namespace Windows::UI::Xaml;
 
@@ -22,8 +28,28 @@ namespace winrt::WarGames::implementation
         throw hresult_not_implemented();
     }
 
-    void MainPage::ClickHandler(IInspectable const&, RoutedEventArgs const&)
-    {
-        myButton().Content(box_value(L"Clicked"));
-    }
+}
+
+
+void winrt::WarGames::implementation::MainPage::New_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::RoutedEventArgs const& e)
+{
+	this->Frame().Navigate(xaml_typename<WarGames::NewPage>());
+}
+
+
+void winrt::WarGames::implementation::MainPage::Load_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::RoutedEventArgs const& e)
+{
+	this->Frame().Navigate(xaml_typename<WarGames::LoadPage>());
+}
+
+
+void winrt::WarGames::implementation::MainPage::Stats_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::RoutedEventArgs const& e)
+{
+	this->Frame().Navigate(xaml_typename<WarGames::StatsPage>());
+}
+
+
+void winrt::WarGames::implementation::MainPage::About_Click(winrt::Windows::Foundation::IInspectable const& sender, winrt::Windows::UI::Xaml::RoutedEventArgs const& e)
+{
+	this->Frame().Navigate(xaml_typename<WarGames::AboutPage>());
 }

@@ -1,0 +1,9 @@
+namespace WarGames
+{
+    [default_interface]
+    runtimeclass AboutPage : Windows.UI.Xaml.Controls.Page
+    {
+        AboutPage();
+        Int32 MyProperty;
+    }
+}
